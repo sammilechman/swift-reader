@@ -3,4 +3,5 @@
 This is my final project for App Academy - a speed reading application that renders words one-by-one, allowing you to increase your reading speed.
 
 Server side: Rails 4.1.0
+
 Client side: Backbone 1.1.2

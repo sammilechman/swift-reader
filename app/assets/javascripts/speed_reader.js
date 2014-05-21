@@ -4,10 +4,13 @@ window.SpeedReader = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // alert('Hello from Backbone!');
+    new SpeedReader.Routers.Router({
+      $rootEl: $("#content"),
+    });
+    Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
-  SpeedReader.initialize();
-});
+// $(document).ready(function(){
+//   SpeedReader.initialize();
+// });
