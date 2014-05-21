@@ -1,0 +1,28 @@
+div#content {
+  border: 2px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#reader {
+  background-color: gray;
+  border: 1px dotted black;
+  height: 100px;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+div#reader p {
+  color: white;
+  font-size: 30px;
+}
+
+#text-input {
+  border: 1px solid blue;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
