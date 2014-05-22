@@ -1,3 +1,5 @@
+$standard-border-radius: 5px;
+
 * {
   font-family: "Museo Sans";
 }
@@ -5,18 +7,24 @@
 div#content {
   background-color: #7277D8;
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: $standard-border-radius;
   margin-left: auto;
   margin-right: auto;
   width: 98%;
 }
 
+div.page-title {
+  background-color: gray;
+  border-radius: $standard-border-radius;
+  display: inline-block;
+
+}
+
 div#reader {
   background-color: #080E73;
 //  border: 1px dotted black;
-  border-radius: 5px;
+  border-radius: $standard-border-radius;
   color: white;
-  font-family: "Museo Sans";
   font-size: 50px;
   height: 100px;
   margin-bottom: 10px;
@@ -63,7 +71,7 @@ span#reader-words-right {
 #text-input {
   background-color: white;
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: $standard-border-radius;
   margin: 10px;
   margin-bottom: 30px;
   margin-left: auto;
