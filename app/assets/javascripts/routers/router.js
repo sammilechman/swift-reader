@@ -3,9 +3,20 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
   },
 
+  // <li class="active link-to-reader"><a href="#">Home</a></li>
+  // <li class="link-to-user-page"><a href="#">User</a></li>
+  // <li class="link-to-contact-page"><a href="#">Contact</a></li>
+
   routes: {
     "": "index",
+    "/": "index",
     "user/:id": "userShow",
+    "contact": "contact",
+  },
+
+  contact: function() {
+    var contactView = new SpeedReader.Views.WelcomeContact();
+    this._swapView(contactView);
   },
 
   index: function() {
