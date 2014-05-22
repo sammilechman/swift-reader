@@ -81,8 +81,8 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     function shiftOff(arr) {
       if (arr.length == 0) {
-        $("#reader-words-left").text("");
-        $("#reader-words-right").text("");
+        $("#reader-words-left").html("Sp");
+        $("#reader-words-right").html("<span class='focus-letter'>e</span>edReader");
         return;
       } else {
         var word = arr.shift();

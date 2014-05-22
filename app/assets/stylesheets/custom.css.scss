@@ -1,4 +1,9 @@
+* {
+  font-family: "Museo Sans";
+}
+
 div#content {
+  background-color: #7277D8;
   border: 2px solid black;
   border-radius: 5px;
   margin-left: auto;
@@ -14,12 +19,13 @@ div#reader {
   font-family: "Museo Sans";
   font-size: 50px;
   height: 100px;
-  margin: 10px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
   overflow: hidden;
   text-align: center;
-  width: 400px;
+  width: 500px;
 }
 
 div#reader-words {
@@ -27,6 +33,11 @@ div#reader-words {
   line-height: 50px;
   position: relative;
   top: 25px;
+}
+
+.focus-letter {
+  color: #FFBC00;
+  background-color: #2F3485;
 }
 
 form#text-input-form {
@@ -44,20 +55,18 @@ span#reader-words-left {
 span#reader-words-right {
 //  background-color: green;
   line-height: 50px;
-  width: 250px;
+  width: 350px;
   float: right;
   text-align: left;
 }
 
 #text-input {
+  background-color: white;
   border: 2px solid black;
   border-radius: 5px;
   margin: 10px;
+  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
-}
-
-.focus-letter {
-  color: #FFBC00;
+  width: 500px;
 }
