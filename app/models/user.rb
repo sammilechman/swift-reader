@@ -2,7 +2,11 @@ class User < ActiveRecord::Base
 
   attr_accessor :password
 
-  validates :email, :password, presence: true
+  validates :email, presence: true
+
+  #Problem: can't save when logging out because no password.
+  #Is this method of allowing nil insecure?
+  validates :password, presence: true, allow_nil: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   def reset_session_token!
