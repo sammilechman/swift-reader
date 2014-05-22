@@ -1,17 +1,20 @@
 <h2>Homepage for Speed Reader project</h2>
 
 <div id="reader">
-  <p>Testing</p>
+  <div id="reader-words">
+    <span id="reader-words-left">He</span>
+    <span id="reader-words-right">llo</span>
+  </div>
 </div>
 
 <div id="text-input">
   <form id="text-input-form">
     <label>Insert text here:<br>
-      <input type="text" name="text[body]">
+      <input type="textarea" name="text[body]">
     </label><br>
 
     <label>Set word per minute:<br>
-      <input type="text" name="text[speed]" value="150">
+      <input type="text" name="text[speed]" value="500">
     </label><br>
 
     <input type="submit" value="Speed Read it!">

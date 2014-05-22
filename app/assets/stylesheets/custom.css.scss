@@ -6,18 +6,41 @@ div#content {
 }
 
 div#reader {
-  background-color: gray;
-  border: 1px dotted black;
+  background-color: #080E73;
+//  border: 1px dotted black;
+  color: white;
+  font-family: "Museo Sans";
+  font-size: 50px;
   height: 100px;
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  overflow: hidden;
+  text-align: center;
+  width: 400px;
 }
 
-div#reader p {
-  color: white;
-  font-size: 30px;
+div#reader-words {
+//  background-color: purple;
+  line-height: 50px;
+  position: relative;
+  top: 25px;
+}
+
+span#reader-words-left {
+//  background-color: red;
+  line-height: 50px;
+  width: 150px;
+  float: left;
+  text-align: right;
+}
+
+span#reader-words-right {
+//  background-color: green;
+  line-height: 50px;
+  width: 250px;
+  float: right;
+  text-align: left;
 }
 
 #text-input {
@@ -25,5 +48,9 @@ div#reader p {
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 400px;
+}
+
+.focus-letter {
+  color: #FFBC00;
 }
