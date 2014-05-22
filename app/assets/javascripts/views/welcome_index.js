@@ -72,7 +72,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   renderWordsArray: function(wordsArr) {
     var view = this;
 
-    wordInterval = window.setInterval(function() {
+    var wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
         window.clearInterval(wordInterval);
       }
@@ -81,7 +81,8 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     function shiftOff(arr) {
       if (arr.length == 0) {
-        $("#reader-words").text("");
+        $("#reader-words-left").text("");
+        $("#reader-words-right").text("");
         return;
       } else {
         var word = arr.shift();

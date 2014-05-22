@@ -1,5 +1,6 @@
 div#content {
   border: 2px solid black;
+  border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   width: 98%;
@@ -8,6 +9,7 @@ div#content {
 div#reader {
   background-color: #080E73;
 //  border: 1px dotted black;
+  border-radius: 5px;
   color: white;
   font-family: "Museo Sans";
   font-size: 50px;
@@ -27,6 +29,10 @@ div#reader-words {
   top: 25px;
 }
 
+form#text-input-form {
+  margin: 5px;
+}
+
 span#reader-words-left {
 //  background-color: red;
   line-height: 50px;
@@ -44,7 +50,8 @@ span#reader-words-right {
 }
 
 #text-input {
-  border: 1px solid blue;
+  border: 2px solid black;
+  border-radius: 5px;
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
