@@ -1,5 +1,5 @@
-SpeedReader.Views.WelcomeContact = Backbone.View.extend({
-  template: JST["welcome/contact"],
+SpeedReader.Views.WelcomeAbout = Backbone.View.extend({
+  template: JST["welcome/about"],
 
   render: function() {
     var renderedContent = this.template();

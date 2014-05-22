@@ -11,12 +11,12 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
     "": "index",
     "/": "index",
     "user/:id": "userShow",
-    "contact": "contact",
+    "about": "about",
   },
 
-  contact: function() {
-    var contactView = new SpeedReader.Views.WelcomeContact();
-    this._swapView(contactView);
+  about: function() {
+    var aboutView = new SpeedReader.Views.WelcomeAbout();
+    this._swapView(aboutView);
   },
 
   index: function() {
