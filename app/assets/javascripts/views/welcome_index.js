@@ -10,11 +10,18 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     this.currentProgress = 0;
     this.currentWordsArray = [];
     this.sessionTotalWordsRead = 0;
+    this.subviews = [];
   },
 
-  keys: {
-    'left right up down space': 'handleKeyboardInput'
+  render: function() {
+    var renderedContent = this.template();
+    this.$el.html(renderedContent);
+    return this;
   },
+
+  // triggerSliderChange: function() {
+  //   $("#input-speed-box").trigger("change");
+  // },
 
   events: {
     "change form input#input-speed-box": "alignSliderAndInput",
@@ -26,24 +33,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     'keypress #entire-welcome-index': 'test',
   },
 
-  handleKeyboardInput: function(event, name){
-    switch(name) {
-    case "space":
-      this.alterSpeed("pause");
-      break;
-    case "left":
-      this.alterSpeed("slower");
-      break;
-    case "right":
-      this.alterSpeed("faster");
-      break;
-    case "up":
-      alert("UP");
-      break;
-    case "down":
-      alert("DOWN");
-      break;
-    }
+  keys: {
+    'left right up down space': 'handleKeyboardInput',
+    'shift': 'subviewUserShow',
+    'ctrl': 'subviewAboutShow',
   },
 
   alterSpeed: function(direction){
@@ -71,16 +64,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
       }
     }
   },
-
-  render: function() {
-    var renderedContent = this.template();
-    this.$el.html(renderedContent);
-    return this;
-  },
-
-  // triggerSliderChange: function() {
-  //   $("#input-speed-box").trigger("change");
-  // },
 
   alignSliderAndInput: function(event) {
     // alert("CHANGE")
@@ -149,6 +132,26 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     return [word.slice(0, int), str.join("")];
   },
 
+  handleKeyboardInput: function(event, name){
+    switch(name) {
+    case "space":
+      this.alterSpeed("pause");
+      break;
+    case "left":
+      this.alterSpeed("slower");
+      break;
+    case "right":
+      this.alterSpeed("faster");
+      break;
+    case "up":
+      alert("UP");
+      break;
+    case "down":
+      alert("DOWN");
+      break;
+    }
+  },
+
   handleQuoteClick: function(event) {
     event.preventDefault();
     var thisQuote = this.quoteData[event.currentTarget.id];
@@ -197,6 +200,28 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
         view.currentProgress++;
       }
     };
+  },
+
+  subviewUserShow: function() {
+    _(this.subviews).each(function(subview) {
+      subview.remove();
+    });
+    var container = "#bottom-center-container";
+    var userShowView = new SpeedReader.Views.WelcomeUser();
+    this.subviews.push(userShowView);
+
+    this.attachSubview(container, userShowView);
+  },
+
+  subviewAboutShow: function(){
+    _(this.subviews).each(function(subview) {
+      subview.remove();
+    });
+    var container = "#bottom-center-container";
+    var aboutShowView = new SpeedReader.Views.WelcomeAbout();
+    this.subviews.push(aboutShowView);
+
+    this.attachSubview(container, aboutShowView);
   },
 
   quoteData: {

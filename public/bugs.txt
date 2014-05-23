@@ -13,3 +13,6 @@ List of Bugs to Fix:
 - Progress bar for reading completion.
 
 - Add pause to nav bar when paused, along with other notifications of reader.
+
+- Spacebar before rendering -> error.
+

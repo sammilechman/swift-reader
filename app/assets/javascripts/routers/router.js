@@ -10,7 +10,7 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "index",
     "/": "index",
-    "user/:id": "userShow",
+    // "user/:id": "userShow",
     "about": "about",
   },
 
