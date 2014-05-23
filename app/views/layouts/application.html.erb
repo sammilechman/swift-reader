@@ -39,10 +39,10 @@
           </ul>
         </li>
 
-        <li class="link-to-about-page"><a href="#/about">Why use SpeedReader?</a></li>
+        <li class="link-to-about-page"><a href="">Why use SpeedReader?</a></li>
         <% if signed_in? %>
           <li class="link-to-user-page">
-            <a href="#/user/<%= current_user.id %>">
+            <a href="">
               <%= current_user.email %>
             </a>
           </li>
@@ -56,8 +56,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li>
-            <a href="#/user/<%= current_user.id %>"><span class="glyphicon glyphicon-ok-circle"></span> Logged in as <%= current_user.email %></a>
+          <li class="link-to-user-page">
+            <a href=""><span class="glyphicon glyphicon-ok-circle"></span> Logged in as <%= current_user.email %></a>
           </li>
         <% end %>
         <li class="dropdown">
@@ -68,7 +68,7 @@
                 <a data-method="DELETE" href="<%= session_url %>">Logout</a>
               </li>
               <li class="divider"></li>
-              <li class="link-to-user-page"><a href="#/user/<%= current_user.id %>"><%= current_user.email %></a></li>
+              <li class="link-to-user-page"><a href=""><%= current_user.email %></a></li>
               <li class="link-to-settings-page"><a href="#/user/<%= current_user.id %>/preferences">Account Settings</a></li>
             <% else %>
               <li><a href="<%= new_session_url %>">Login</a></li>

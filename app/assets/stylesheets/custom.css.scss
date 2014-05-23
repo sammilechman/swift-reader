@@ -3,6 +3,7 @@ $standard-border-radius: 0px;
 $standard-padding: 5px;
 $standard-margin-small: 5px;
 $standard-margin-medium: 10px;
+$standard-width-middle: 500px;
 $color-dark-gray: #222222;
 $color-light-gray: #888888;
 
@@ -16,6 +17,13 @@ a.quote {
 
 body {
   height: 100%;
+}
+
+div#bottom-center-container {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: $standard-width-middle;
 }
 
 div#content {
@@ -58,7 +66,7 @@ div#reader {
   margin-top: $standard-margin-medium;
   overflow: hidden;
   text-align: center;
-  width: 500px;
+  width: $standard-width-middle;
 }
 
 div#reader-words {
@@ -87,8 +95,6 @@ div#sidebar-left {
 div#sidebar-right {
   float: right;
 }
-
-
 
 .focus-letter {
   color: #FFBC00;

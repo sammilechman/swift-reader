@@ -11,6 +11,23 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     this.currentWordsArray = [];
     this.sessionTotalWordsRead = 0;
     this.subviews = [];
+    this.setUpBindings();
+  },
+
+  setUpBindings: function() {
+    var view = this;
+    var about = $(".link-to-about-page");
+    var user = $(".link-to-user-page");
+    console.log(about);
+    console.log(user);
+    about.on("click", function(event) {
+      event.preventDefault();
+      view.subviewAboutShow();
+    });
+    user.on("click", function(event) {
+      event.preventDefault();
+      view.subviewUserShow();
+    });
   },
 
   render: function() {
@@ -29,14 +46,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     "click form input#speed-select-slider": "alignSliderAndInput",
     "submit form": "handleFormSubmit",
     "click .quote": "handleQuoteClick",
-    'keyup #entire-welcome-index': 'test',
-    'keypress #entire-welcome-index': 'test',
   },
 
   keys: {
     'left right up down space': 'handleKeyboardInput',
-    'shift': 'subviewUserShow',
-    'ctrl': 'subviewAboutShow',
   },
 
   alterSpeed: function(direction){

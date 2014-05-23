@@ -16,3 +16,5 @@ List of Bugs to Fix:
 
 - Spacebar before rendering -> error.
 
+- Settings page non existant.
+
