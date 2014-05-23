@@ -8,7 +8,7 @@ $color-dark-gray: #222222;
 $color-light-gray: #888888;
 
 * {
-  font-family: "Museo Sans";
+//  font-family: "Museo Sans";
 }
 
 a.quote {
@@ -22,7 +22,7 @@ html {
 
 body {
   background: url('../images/grunge-background-1.jpg');
-    height: 99%;
+  height: 99%;
   padding: 0;
 }
 
@@ -51,7 +51,7 @@ div.page-title {
 }
 
 div#reader {
-  background-color: #080E73;
+  background-color: black;//#080E73;
 //  border: $standard-border;
 //  border-radius: $standard-border-radius;
   color: white;
@@ -67,7 +67,7 @@ div#reader {
 }
 
 div#reader-words {
-//  background-color: purple;
+  font-family: "Courier New" !important;
   line-height: 50px;
   position: relative;
   top: 25px;

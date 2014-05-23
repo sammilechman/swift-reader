@@ -15,7 +15,9 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      users: this.collection
+    });
     this.$el.html(renderedContent);
     return this;
   },
@@ -219,7 +221,17 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
       subview.remove();
     });
     var container = "#bottom-center-container";
-    var userShowView = new SpeedReader.Views.WelcomeUser();
+    // var userShowView = new SpeedReader.Views.WelcomeUser();
+
+    var router = this;
+    this._getUser(id, function(user) {
+      var userView = new SpeedReader.Views.WelcomeUser({
+        model: user
+      });
+      router._swapView(userView);
+    })
+
+
     this.subviews.push(userShowView);
 
     this.attachSubview(container, userShowView);

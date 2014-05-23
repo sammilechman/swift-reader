@@ -4,10 +4,17 @@ window.SpeedReader = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new SpeedReader.Routers.Router({
-      $rootEl: $("#content"),
+
+    SpeedReader.users = new SpeedReader.Collections.Users();
+    SpeedReader.users.fetch({
+      success: function() {
+        new SpeedReader.Routers.Router({
+          $rootEl: $("#content"),
+          users: SpeedReader.users
+        });
+        Backbone.history.start();
+      }
     });
-    Backbone.history.start();
   }
 };
 

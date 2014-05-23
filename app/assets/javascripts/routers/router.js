@@ -1,5 +1,6 @@
 SpeedReader.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
+    this.users = options.users;
     this.$rootEl = options.$rootEl;
   },
 
@@ -20,14 +21,20 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
   },
 
   index: function() {
-    var indexView = new SpeedReader.Views.WelcomeIndex();
+    var indexView = new SpeedReader.Views.WelcomeIndex({
+      collection: this.users
+    });
     this._swapView(indexView);
   },
 
-  userShow: function() {
-    //Will eventually take ID argument
-    var userView = new SpeedReader.Views.WelcomeUser();
-    this._swapView(userView);
+  userShow: function(id) {
+    var router = this;
+    this._getUser(id, function(user) {
+      var userView = new SpeedReader.Views.WelcomeUser({
+        model: user
+      });
+      router._swapView(userView);
+    })
   },
 
   _swapView: function(view) {
@@ -38,4 +45,24 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
   },
+
+  _getUser: function(id, callback) {
+    var router = this;
+    var user = SpeedReader.users.get(id);
+    if (!user) {
+      user = new SpeedReader.Models.User({
+        id: id
+      })
+      user.collection = this.users;
+      user.fetch({
+        success: function() {
+          router.users.add(user);
+          callback(user);
+        }
+      });
+    } else {
+      callback(user);
+    }
+  },
+
 });
