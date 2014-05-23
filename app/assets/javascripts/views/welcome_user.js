@@ -3,7 +3,9 @@ SpeedReader.Views.WelcomeUser = Backbone.View.extend({
 
   render: function() {
     console.log("rendering USER")
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      user: this.model
+    });
     this.$el.html(renderedContent);
     return this;
   },

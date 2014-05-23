@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body id="entire-body">
+<body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">

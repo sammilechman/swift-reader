@@ -12,6 +12,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     this.sessionTotalWordsRead = 0;
     this.subviews = [];
     this.setUpBindings();
+    this.userId = ($("body").attr("data-id") || -1);
   },
 
   render: function() {
@@ -62,6 +63,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
         this.renderWordsArray(this.currentWordsArray, this.currentProgress);
       }
     }
+  },
+
+  alterUserStats: function(numWords) {
+
   },
 
   alignSliderAndInput: function(event) {
@@ -172,7 +177,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
 
     wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
-        view.sessionTotalWordsRead += view.currentProgress;
+        view.alterUserStats(view.currentProgress);
         view.currentProgress = 0;
 
         window.clearInterval(wordInterval);
@@ -223,14 +228,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     var container = "#bottom-center-container";
     // var userShowView = new SpeedReader.Views.WelcomeUser();
 
-    var router = this;
-    this._getUser(id, function(user) {
-      var userView = new SpeedReader.Views.WelcomeUser({
+    var user = this.collection.get(this.userId);
+    var userShowView = new SpeedReader.Views.WelcomeUser({
         model: user
-      });
-      router._swapView(userView);
-    })
-
+    });
 
     this.subviews.push(userShowView);
 

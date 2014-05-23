@@ -29,10 +29,15 @@ body {
 div#bottom-center-container {
 //  border: $standard-border;
   background-color: $color-dark-gray;
+  font-family: "Museo Sans";
   height: 100%;
   margin-left: auto;
   margin-right: auto;
   width: $standard-width-middle;
+}
+
+div.collapse.navbar-collapse {
+  font-family: "Museo Sans";
 }
 
 div#content {
@@ -76,6 +81,7 @@ div#reader-words {
 
 
 div.sidebar-container {
+  font-family: "Museo Sans";
   background-color: $color-dark-gray;
 //  border: $standard-border;
   color: $color-light-gray;

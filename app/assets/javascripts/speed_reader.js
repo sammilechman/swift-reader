@@ -4,7 +4,6 @@ window.SpeedReader = {
   Views: {},
   Routers: {},
   initialize: function() {
-
     SpeedReader.users = new SpeedReader.Collections.Users();
     SpeedReader.users.fetch({
       success: function() {
