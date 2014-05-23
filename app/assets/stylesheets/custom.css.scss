@@ -14,10 +14,14 @@ a.quote {
 
 }
 
+body {
+  height: 100%;
+}
+
 div#content {
   background-color: $color-light-gray;
   border: $standard-border;
-  height: 100%;
+  height: 90%;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
@@ -99,8 +103,8 @@ form#text-input-form * {
   width: 100%;
 }
 
-html, body {
-  height: 100%;
+html {
+  height: 99%;
 }
 
 span#reader-words-left {

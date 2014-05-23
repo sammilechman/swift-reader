@@ -7,10 +7,13 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     this.speed;
     this.wordDelay;
     this.inRenderProcess = false;
+    this.currentWordsProgress = 0;
+    this.currentWordsArray = [];
+    this.sessionTotalWordsRead = 0;
   },
 
   keys: {
-    'left up': 'test',
+    'left right up down space': 'handleKeyboardInput'
   },
 
   events: {
@@ -23,7 +26,40 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     'keypress #entire-welcome-index': 'test',
   },
 
-  test: function(e, name) { alert("You pressed: " + name); },
+  handleKeyboardInput: function(event, name){
+    switch(name) {
+    case "space":
+      this.alterSpeed("pause");
+      break;
+    case "left":
+      this.alterSpeed("slower");
+      break;
+    case "right":
+      this.alterSpeed("faster");
+      break;
+    case "up":
+      alert("UP");
+      break;
+    case "down":
+      alert("DOWN");
+      break;
+    }
+  },
+
+  alterSpeed: function(direction){
+
+    if (direction === "pause" && this.inRenderProcess === true) {
+      debugger
+      window.clearInterval(wordInterval);
+      this.inRenderProcess = false;
+    } else if (direction === "pause" && this.inRenderProcess === false) {
+      this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
+    } else if (direction === "slower") {
+      alert("Slowwwww");
+    } else if (direction === "faster") {
+      alert("Fasttttt");
+    }
+  },
 
   render: function() {
     var renderedContent = this.template();
@@ -67,7 +103,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     event.preventDefault();
 
     if (this.inRenderProcess) { return; }
-    this.inRenderProcess = true;
 
     //The string and speed from the user's input.
     var words = $(event.currentTarget).serializeJSON().text.body;
@@ -84,6 +119,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     this.speed = parseInt(speed);
     this.calculateWordDelay();
+    this.currentWordsArray = wordsArray;
 
     return this.renderWordsArray(wordsArray);
   },
@@ -111,11 +147,18 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     $("#text-input-form").submit();
   },
 
-  renderWordsArray: function(wordsArr) {
+  renderWordsArray: function(wordsArr, startingPos) {
     var view = this;
+    this.inRenderProcess = true;
 
-    var wordInterval = window.setInterval(function() {
+    if (typeof(startingPos)==='undefined') startingPos = 0;
+    wordsArr.slice(startingPos);
+
+    wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
+        view.sessionTotalWordsRead += view.currentWordsProgress;
+        view.currentWordsProgress = 0;
+
         window.clearInterval(wordInterval);
         view.inRenderProcess = false;
       }
@@ -135,6 +178,9 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
         $("#reader-words-left").html(words[0]);
         $("#reader-words-right").html(words[1]);
+
+        //We need to track progress so that we can pause/resume/change speed.
+        view.currentWordsProgress++;
       }
     };
   },

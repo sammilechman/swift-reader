@@ -4,13 +4,12 @@ List of Bugs to Fix:
 
 - Can't alter WPM during diplay, pause, etc.
 
-- Clicking "Speed Read It!" while text is rendering will cause a double render of both at the same time.
-
 - No way to track user statistics.
 
-- No About section created (maybe change Contact).
+- 99% html problem - don't want a scroll bar, this solves the default spacebar operation of scrolling down. (space for pause)
 
 - Slider bugs: Incorrectly syncs when typing in the box, but fixes when you tab back into the view. Doesn't sync dynamically.
 
 - Progress bar for reading completion.
 
+- Add pause to nav bar when paused, along with other notifications of reader.
