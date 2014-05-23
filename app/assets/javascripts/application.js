@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
+//= require backbone.keys
 //= require speed_reader
 //= require_tree ../templates
 //= require_tree ./models

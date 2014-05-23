@@ -9,13 +9,21 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     this.inRenderProcess = false;
   },
 
+  keys: {
+    'left up': 'test',
+  },
+
   events: {
     "keyup form input#input-speed-box": "alignSliderAndInput",
     // "keyup form input#input-speed-box": "triggerSliderChange",
     "click form input#speed-select-slider": "alignSliderAndInput",
     "submit form": "handleFormSubmit",
     "click .quote": "handleQuoteClick",
+    'keyup #entire-welcome-index': 'test',
+    'keypress #entire-welcome-index': 'test',
   },
+
+  test: function(e, name) { alert("You pressed: " + name); },
 
   render: function() {
     var renderedContent = this.template();
