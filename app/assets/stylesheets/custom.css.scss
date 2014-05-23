@@ -15,12 +15,21 @@ a.quote {
 
 }
 
-body {
+html {
   height: 100%;
+  width: 100%;
+}
+
+body {
+  background: url('../images/grunge-background-1.jpg');
+    height: 99%;
+  padding: 0;
 }
 
 div#bottom-center-container {
-  background-color: white;
+//  border: $standard-border;
+  background-color: $color-dark-gray;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   width: $standard-width-middle;
@@ -28,35 +37,23 @@ div#bottom-center-container {
 
 div#content {
   background-color: $color-light-gray;
-  border: $standard-border;
+//  border: $standard-border;
   height: 90%;
   margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: $standard-margin-medium;
+  margin-right: $standard-margin-medium;
 }
-
-//div#left-sidebar {
-//  float: left;
-//  background-color: #f8f8f8;
-//  height: 100%;
-//  position: absolute;
-//}
 
 div.page-title {
-  background-color: gray;
-  border-radius: $standard-border-radius;
   display: inline-block;
   padding: $standard-padding;
-}
-
-div#entire-welcome-index {
-  height: 100%;
+  color: $color-light-gray;
 }
 
 div#reader {
   background-color: #080E73;
 //  border: $standard-border;
-  border-radius: $standard-border-radius;
+//  border-radius: $standard-border-radius;
   color: white;
   font-size: 50px;
   height: 100px;
@@ -80,10 +77,12 @@ div#reader-words {
 
 div.sidebar-container {
   background-color: $color-dark-gray;
-  border: $standard-border;
+//  border: $standard-border;
   color: $color-light-gray;
   display: inline-block;
   height: 100%;
+  margin: 0;
+  margin-top: 0;
   padding: $standard-padding;
   width: 250px;
 }
@@ -109,10 +108,6 @@ form#text-input-form * {
   width: 100%;
 }
 
-html {
-  height: 99%;
-}
-
 span#reader-words-left {
 //  background-color: red;
   line-height: 50px;
@@ -131,8 +126,8 @@ span#reader-words-right {
 
 #text-input {
   background-color: white;
-  border: 2px solid black;
-  border-radius: $standard-border-radius;
+//  border: 2px solid black;
+//  border-radius: $standard-border-radius;
   margin: 10px;
   margin-bottom: 30px;
   margin-left: auto;

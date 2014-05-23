@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>SpeedReader</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body id="entire-body">
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -24,20 +26,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active link-to-reader"><a href="/">Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample Texts<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li class="divider"></li>
-            <li><a href="#">Action</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <li class="active link-to-reader"><a href="">Home</a></li>
 
         <li class="link-to-about-page"><a href="">Why use SpeedReader?</a></li>
         <% if signed_in? %>
@@ -87,8 +76,11 @@
 </nav>
 
 <% if flash[:errors] %>
-  <%= flash[:errors] %>
+  <div id="flash-errors">
+    <%= flash[:errors] %>
+  </div>
 <% end %>
+
 
 <div id="content">
   <%= yield %>

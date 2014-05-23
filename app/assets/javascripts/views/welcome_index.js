@@ -14,22 +14,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     this.setUpBindings();
   },
 
-  setUpBindings: function() {
-    var view = this;
-    var about = $(".link-to-about-page");
-    var user = $(".link-to-user-page");
-    console.log(about);
-    console.log(user);
-    about.on("click", function(event) {
-      event.preventDefault();
-      view.subviewAboutShow();
-    });
-    user.on("click", function(event) {
-      event.preventDefault();
-      view.subviewUserShow();
-    });
-  },
-
   render: function() {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
@@ -213,6 +197,21 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
         view.currentProgress++;
       }
     };
+  },
+
+  setUpBindings: function() {
+    var view = this;
+    var about = $(".link-to-about-page");
+    var user = $(".link-to-user-page");
+
+    about.on("click", function(event) {
+      event.preventDefault();
+      view.subviewAboutShow();
+    });
+    user.on("click", function(event) {
+      event.preventDefault();
+      view.subviewUserShow();
+    });
   },
 
   subviewUserShow: function() {
