@@ -1,29 +1,56 @@
-<div id="reader">
-  <div id="reader-words">
-    <span id="reader-words-left">
-      Sp
-    </span>
-    <span id="reader-words-right">
-      <span class="focus-letter">e</span>edReader
-    </span>
+<div class='sidebar-container' id="sidebar-left">
+  <h3>Sample texts</h3>
+  <ul>
+    <a class="quote" id="cj-app-academy" data-wpm="100" href="">
+      <li>CJ, "App Academy", 100 wpm</li>
+    </a>
+    <a class="quote" id="alec-baldwin-departed" data-wpm="200" href="">
+      <li>Alec Baldwin, "The Departed", 200 wpm</li>
+    </a>
+    <a class="quote" id="the-emperor-jedi" data-wpm="350" href="">
+      <li>The Emperor, "Return of the Jedi", 350 wpm</li>
+    </a>
+    <a class="quote" id="ferris-bueller" data-wpm="450" href="">
+      <li>Ferris Bueller, "Ferris Bueller's Day Off", 450 wpm</li>
+    </a>
+    <a class="quote" id="denzel-washington" data-wpm="650" href="">
+      <li>Denzel Washington, "Training Day", 650 wpm</li>
+    </a>
+  </ul>
+</div>
+
+<div class='sidebar-container' id="sidebar-right">
+sadfsadf
+</div>
+
+<div id="reader-input-container">
+  <div id="reader">
+    <div id="reader-words">
+      <span id="reader-words-left">
+        Sp
+      </span>
+      <span id="reader-words-right">
+        <span class="focus-letter">e</span>edReader
+      </span>
+    </div>
+  </div>
+
+  <div id="text-input">
+    <form id="text-input-form">
+      <label>Insert text here:<br>
+        <input id="text-area-box-input" type="textarea" name="text[body]">
+      </label><br>
+
+      <label>Set words per minute:<br>
+        <input id="input-speed-box" type="text" name="text[speed]" value="500">
+      </label>
+
+      <input type="range" id="speed-select-slider" name="text[speed]"
+             value="500" min="0" max="1000">
+
+      <input type="submit" value="Speed Read It!">
+
+    </form>
   </div>
 </div>
 
-<div id="text-input">
-  <form id="text-input-form">
-    <label>Insert text here:<br>
-      <input type="textarea" name="text[body]">
-    </label><br>
-
-    <label>Set word per minute:<br>
-      <input type="text" name="text[speed]" value="500">
-    </label><br>
-
-    <input type="submit" value="Speed Read it!">
-
-  </form>
-</div>
-
-<p>
-The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the Lord when I lay my vengeance upon you.
-</p>

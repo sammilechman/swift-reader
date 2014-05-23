@@ -1,36 +1,53 @@
-$standard-border-radius: 5px;
+$standard-border: 1px solid black;;
+$standard-border-radius: 0px;
+$standard-padding: 5px;
+$standard-margin-small: 5px;
+$standard-margin-medium: 10px;
+$color-dark-gray: #222222;
+$color-light-gray: #888888;
 
 * {
   font-family: "Museo Sans";
 }
 
+a.quote {
+
+}
+
 div#content {
-  background-color: #7277D8;
-  border: 2px solid black;
-  border-radius: $standard-border-radius;
+  background-color: $color-light-gray;
+  border: $standard-border;
+  height: 100%;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 98%;
 }
+
+//div#left-sidebar {
+//  float: left;
+//  background-color: #f8f8f8;
+//  height: 100%;
+//  position: absolute;
+//}
 
 div.page-title {
   background-color: gray;
   border-radius: $standard-border-radius;
   display: inline-block;
-
+  padding: $standard-padding;
 }
 
 div#reader {
   background-color: #080E73;
-//  border: 1px dotted black;
+//  border: $standard-border;
   border-radius: $standard-border-radius;
   color: white;
   font-size: 50px;
   height: 100px;
-  margin-bottom: 10px;
+  margin-bottom: $standard-margin-medium;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: $standard-margin-medium;
   overflow: hidden;
   text-align: center;
   width: 500px;
@@ -43,13 +60,43 @@ div#reader-words {
   top: 25px;
 }
 
+
+
+div.sidebar-container {
+  background-color: $color-dark-gray;
+  border: $standard-border;
+  color: $color-light-gray;
+  display: inline-block;
+  height: 100%;
+  padding: $standard-padding;
+  width: 350px;
+}
+
+div#sidebar-left {
+  float: left;
+}
+
+div#sidebar-right {
+  float: right;
+}
+
+
+
 .focus-letter {
   color: #FFBC00;
   background-color: #2F3485;
 }
 
 form#text-input-form {
-  margin: 5px;
+  margin: $standard-margin-small;
+}
+
+form#text-input-form * {
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
 }
 
 span#reader-words-left {

@@ -10,3 +10,7 @@ List of Bugs to Fix:
 
 - No About section created (maybe change Contact).
 
+- Slider bugs: Incorrectly syncs when typing in the box, but fixes when you tab back into the view. Doesn't sync dynamically.
+
+- Progress bar for reading completion.
+
