@@ -11,6 +11,20 @@ window.SpeedReader = {
   }
 };
 
+Backbone.CompositeView = Backbone.View.extend({
+  addSubview: function(selector, subview) {
+
+  },
+
+  attachSubview: function(selector, subview) {
+
+  },
+
+  removeSubview: function(selector, subview) {
+    subview.remove();
+  },
+});
+
 // $(document).ready(function(){
 //   SpeedReader.initialize();
 // });

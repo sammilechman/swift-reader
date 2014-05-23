@@ -26,33 +26,39 @@
   <h4>Slower: Left arrow</h4>
 </div>
 
-<div id="reader-input-container">
-  <div id="reader">
-    <div id="reader-words">
-      <span id="reader-words-left">
-        Sp
-      </span>
-      <span id="reader-words-right">
-        <span class="focus-letter">e</span>edReader
-      </span>
+
+<div id="center-container">
+  <div id="reader-input-container">
+    <div id="reader">
+      <div id="reader-words">
+        <span id="reader-words-left">
+          Sp
+        </span>
+        <span id="reader-words-right">
+          <span class="focus-letter">e</span>edReader
+        </span>
+      </div>
+    </div>
+
+    <div id="text-input">
+      <form id="text-input-form">
+        <label>Insert text here:<br>
+          <input id="text-area-box-input" type="textarea" name="text[body]">
+        </label><br>
+
+        <label>Set words per minute:<br>
+          <input id="input-speed-box" type="text" name="text[speed]" value="500">
+        </label>
+
+        <input type="range" id="speed-select-slider" name="text[speed]"
+               value="500" min="0" max="1000">
+
+        <input type="submit" value="Speed Read It!">
+
+      </form>
     </div>
   </div>
 
-  <div id="text-input">
-    <form id="text-input-form">
-      <label>Insert text here:<br>
-        <input id="text-area-box-input" type="textarea" name="text[body]">
-      </label><br>
+  <div id="bottom-center-container"></div>
 
-      <label>Set words per minute:<br>
-        <input id="input-speed-box" type="text" name="text[speed]" value="500">
-      </label>
-
-      <input type="range" id="speed-select-slider" name="text[speed]"
-             value="500" min="0" max="1000">
-
-      <input type="submit" value="Speed Read It!">
-
-    </form>
-  </div>
 </div>

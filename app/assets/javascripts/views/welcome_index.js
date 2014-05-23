@@ -1,4 +1,4 @@
-SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
+SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
   template: JST["welcome/index"],
 
   tagName: "index",
