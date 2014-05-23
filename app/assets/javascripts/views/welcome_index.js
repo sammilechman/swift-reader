@@ -17,7 +17,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   events: {
-    "keyup form input#input-speed-box": "alignSliderAndInput",
+    "change form input#input-speed-box": "alignSliderAndInput",
     // "keyup form input#input-speed-box": "triggerSliderChange",
     "click form input#speed-select-slider": "alignSliderAndInput",
     "submit form": "handleFormSubmit",
@@ -47,18 +47,25 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   alterSpeed: function(direction){
+    window.clearInterval(wordInterval);
 
     if (direction === "pause" && this.inRenderProcess === true) {
-      debugger
-      window.clearInterval(wordInterval);
       this.inRenderProcess = false;
     } else if (direction === "pause" && this.inRenderProcess === false) {
+      this.calculateSpeed();
       this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
     } else if (direction === "slower") {
-      alert("Slowwwww");
+      var newSpeed = parseInt($("#input-speed-box").val()) - 5;
+      $("#input-speed-box").val(newSpeed);
+      this.calculateSpeed();
+      this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
     } else if (direction === "faster") {
-      alert("Fasttttt");
+      var newSpeed = parseInt($("#input-speed-box").val()) + 5;
+      $("#input-speed-box").val(newSpeed);
+      this.calculateSpeed();
+      this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
     }
+
   },
 
   render: function() {
@@ -95,6 +102,11 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     }
   },
 
+  calculateSpeed: function() {
+    this.speed = parseInt($("#input-speed-box").serializeJSON().text.speed);
+    this.calculateWordDelay();
+  },
+
   calculateWordDelay: function() {
     this.wordDelay = ((60 / this.speed) * 1000);
   },
@@ -106,7 +118,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     //The string and speed from the user's input.
     var words = $(event.currentTarget).serializeJSON().text.body;
-    var speed = $(event.currentTarget).serializeJSON().text.speed;
+    var speed = this.calculateSpeed();
 
     wordsArray = [];
     //Split by any whitespace to form words array.
@@ -117,8 +129,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
       }
     });
 
-    this.speed = parseInt(speed);
-    this.calculateWordDelay();
     this.currentWordsArray = wordsArray;
 
     return this.renderWordsArray(wordsArray);
