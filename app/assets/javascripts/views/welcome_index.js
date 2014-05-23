@@ -7,7 +7,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     this.speed;
     this.wordDelay;
     this.inRenderProcess = false;
-    this.currentWordsProgress = 0;
+    this.currentProgress = 0;
     this.currentWordsArray = [];
     this.sessionTotalWordsRead = 0;
   },
@@ -49,23 +49,27 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   alterSpeed: function(direction){
     window.clearInterval(wordInterval);
 
-    if (direction === "pause" && this.inRenderProcess === true) {
+    if (direction === "pause" && this.inRenderProcess) {
       this.inRenderProcess = false;
-    } else if (direction === "pause" && this.inRenderProcess === false) {
-      this.calculateSpeed();
-      this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
-    } else if (direction === "slower") {
-      var newSpeed = parseInt($("#input-speed-box").val()) - 5;
-      $("#input-speed-box").val(newSpeed);
-      this.calculateSpeed();
-      this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
-    } else if (direction === "faster") {
-      var newSpeed = parseInt($("#input-speed-box").val()) + 5;
-      $("#input-speed-box").val(newSpeed);
-      this.calculateSpeed();
-      this.renderWordsArray(this.currentWordsArray, this.currentWordsProgress);
-    }
 
+    } else if (direction === "pause" && !this.inRenderProcess) {
+      this.calculateSpeed();
+      this.renderWordsArray(this.currentWordsArray, this.currentProgress);
+
+    } else if (direction === "slower" || direction === "faster") {
+      if (direction === "slower") {
+        var newSpeed = parseInt($("#input-speed-box").val()) - 5;
+      } else {
+        var newSpeed = parseInt($("#input-speed-box").val()) + 5;
+      }
+
+      $("#input-speed-box").val(newSpeed);
+      this.calculateSpeed();
+
+      if (this.inRenderProcess) {
+        this.renderWordsArray(this.currentWordsArray, this.currentProgress);
+      }
+    }
   },
 
   render: function() {
@@ -166,8 +170,8 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
-        view.sessionTotalWordsRead += view.currentWordsProgress;
-        view.currentWordsProgress = 0;
+        view.sessionTotalWordsRead += view.currentProgress;
+        view.currentProgress = 0;
 
         window.clearInterval(wordInterval);
         view.inRenderProcess = false;
@@ -190,7 +194,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
         $("#reader-words-right").html(words[1]);
 
         //We need to track progress so that we can pause/resume/change speed.
-        view.currentWordsProgress++;
+        view.currentProgress++;
       }
     };
   },
