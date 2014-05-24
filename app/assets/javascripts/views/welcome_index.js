@@ -66,7 +66,18 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
   },
 
   alterUserStats: function(numWords) {
+    var user = this.collection.get(this.userId);
 
+    var tw = user.attributes.total_words += numWords;
+    var tt = user.attributes.total_time += (numWords / this.speed);
+    var as = user.attributes.average_speed = (user.attributes.total_words / user.attributes.total_time);
+
+    user.save({total_words: tw, total_time: tt, average_speed: as}, {
+      success: function() {
+        console.log("SUCCESS");
+        debugger;
+      }
+    })
   },
 
   alignSliderAndInput: function(event) {
