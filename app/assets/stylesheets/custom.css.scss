@@ -29,6 +29,7 @@ body {
 div#bottom-center-container {
 //  border: $standard-border;
   background-color: $color-dark-gray;
+  color: $color-light-gray;
   font-family: "Museo Sans";
   height: 100%;
   margin-left: auto;
@@ -102,8 +103,8 @@ div#sidebar-right {
 }
 
 .focus-letter {
-  color: #FFBC00;
-  background-color: #2F3485;
+  color: #FFD073;
+  background-color: #2A4480;
 }
 
 form#text-input-form {
