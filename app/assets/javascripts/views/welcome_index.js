@@ -240,7 +240,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     _(this.subviews).each(function(subview) {
       subview.remove();
     });
-    var container = "#bottom-center-container";
+    var container = "#right-container";
     // var userShowView = new SpeedReader.Views.WelcomeUser();
 
     var user = this.collection.get(this.userId);
@@ -257,7 +257,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     _(this.subviews).each(function(subview) {
       subview.remove();
     });
-    var container = "#bottom-center-container";
+    var container = "#right-container";
     var aboutShowView = new SpeedReader.Views.WelcomeAbout();
     this.subviews.push(aboutShowView);
 

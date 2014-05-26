@@ -28,19 +28,8 @@ button.left-sample-button {
   height: 50px;
 }
 
-div.about-bottom {
-  width:700px;
-}
-
-div#bottom-center-container {
-//  border: $standard-border;
-  background-color: $color-dark-gray;
-  color: $color-light-gray;
-  font-family: "Museo Sans";
-//  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  width: $standard-width-middle;
+#center-container {
+  height: 100%;
 }
 
 div.collapse.navbar-collapse {
@@ -63,10 +52,9 @@ div#reader {
   color: white;
   font-size: 50px;
   height: 100px;
-  margin: $standard-margin-medium;
+  margin: $standard-margin-small;
 //  margin-left: auto;
 //  margin-right: auto;
-  margin-top: $standard-margin-medium;
   overflow: hidden;
 //  padding-top: $standard-padding;
   text-align: center;
@@ -80,6 +68,20 @@ div#reader-words {
   top: 25px;
 }
 
+#reader-input-container {
+  background-image: url("../images/background-pattern.jpg");
+  float: left;
+  display: inline-block;
+  height: 100%;
+  margin-right: $standard-margin-medium;
+//  padding: $standard-padding;
+}
+
+#right-container {
+
+}
+
+
 div.sidebar-container {
   font-family: "Museo Sans";
   background-color: $color-dark-gray;
@@ -92,6 +94,20 @@ div.sidebar-container {
   padding: $standard-padding;
   width: 200px;
 }
+
+div.sidebar-container-header {
+  border: $standard-border;
+  font-family: "Museo Sans";
+  font-size: 20px;
+  line-height: 50px;
+  background-color: $color-light-gray;
+  color: black;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
 
 div#sidebar-left {
   float: left;
@@ -118,6 +134,11 @@ form#text-input-form {
 
 form#text-input-form * {
   width: 100%;
+}
+
+#right-container {
+  padding: $standard-padding;
+  position: relative;
 }
 
 span.pull-left-and-center {
@@ -148,13 +169,15 @@ span#reader-words-right {
   text-align: left;
 }
 
+textarea {
+  resize: none;
+}
+
 #text-input {
   background-color: white;
   border: $standard-border;
 //  border-radius: $standard-border-radius;
   float: left;
-  margin-bottom: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: $standard-margin-small;
   width: 500px;
 }
