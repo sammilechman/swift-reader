@@ -2,10 +2,6 @@ List of Bugs to Fix:
 
 - Switching between Rails pages and Backbone pages. From the Create Account page (a Rails page), clicking on Contact (a Backbone page) results in the url "http://localhost:3000/users/new#/contact", but it should result in "http://localhost:3000/#/contact".
 
-- Can't alter WPM during diplay, pause, etc.
-
-- No way to track user statistics.
-
 - 99% html problem - don't want a scroll bar, this solves the default spacebar operation of scrolling down. (space for pause)
 
 - Slider bugs: Incorrectly syncs when typing in the box, but fixes when you tab back into the view. Doesn't sync dynamically.
@@ -17,4 +13,10 @@ List of Bugs to Fix:
 - Spacebar before rendering -> error.
 
 - Settings page non existant.
+
+- Click on "Speed Read It!", afterwords, focus is on that bar and spacebar will "click" that, not pausing correctly.
+
+- Alter pause length based on word length?
+
+- Changing WPM during render via slider has no effect until pause/unpause.
 

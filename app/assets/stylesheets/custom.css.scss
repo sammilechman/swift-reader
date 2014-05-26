@@ -12,12 +12,13 @@ $color-light-gray: #888888;
   src: url(/assets/FiraSans-Medium.otf) format("truetype");
 }
 
-* {
-//  font-family: "Museo Sans";
+@font-face {
+  font-family: "Source Code Pro Medium";
+  src: url(/assets/SourceCodePro-Medium.otf.woff) format("truetype");
 }
 
-a.quote {
-
+* {
+//  font-family: "Museo Sans";
 }
 
 html {
@@ -27,8 +28,34 @@ html {
 
 body {
   background: url('../images/grunge-background-1.jpg');
-  height: 99%;
+  height: 100%;
   padding: 0;
+//  overflow: hidden;
+}
+
+div#center-container {
+//  padding-top: $standard-padding;
+}
+
+div.sidebar-container-header {
+  background-color: $color-light-gray;
+  border: $standard-border;
+  color: black;
+  width: 100%;
+  height: 50px;
+  display: inline-block;
+  font-size: 30px;
+  text-align: center;
+//  text-size: 25px;
+}
+
+button.left-sample-button {
+  width: 100%;
+  height: 50px;
+}
+
+div.about-bottom {
+  width:700px;
 }
 
 div#bottom-center-container {
@@ -36,7 +63,7 @@ div#bottom-center-container {
   background-color: $color-dark-gray;
   color: $color-light-gray;
   font-family: "Museo Sans";
-  height: 100%;
+//  height: 100%;
   margin-left: auto;
   margin-right: auto;
   width: $standard-width-middle;
@@ -55,12 +82,6 @@ div#content {
   margin-right: $standard-margin-medium;
 }
 
-div.page-title {
-  display: inline-block;
-  padding: $standard-padding;
-  color: $color-light-gray;
-}
-
 div#reader {
   background-color: black;//#080E73;
 //  border: $standard-border;
@@ -73,15 +94,17 @@ div#reader {
   margin-right: auto;
   margin-top: $standard-margin-medium;
   overflow: hidden;
+//  padding-top: $standard-padding;
   text-align: center;
   width: $standard-width-middle;
 }
 
 div#reader-words {
-//  font-family: "Fira Sans Medium";
+  font-family: "Source Code Pro Medium";
 //  font-family: "Courier New" !important;
   line-height: 50px;
   position: relative;
+
   top: 25px;
 }
 
@@ -97,7 +120,7 @@ div.sidebar-container {
   margin: 0;
   margin-top: 0;
   padding: $standard-padding;
-  width: 250px;
+  width: 200px;
 }
 
 div#sidebar-left {
@@ -145,5 +168,5 @@ span#reader-words-right {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+  width: 700px;
 }

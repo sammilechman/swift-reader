@@ -1,29 +1,19 @@
 <div class='sidebar-container' id="sidebar-left">
-  <h3>Sample texts</h3>
-  <ul>
-    <a class="quote" id="cj-app-academy" data-wpm="100" href="">
-      <li>CJ, "App Academy", 100 wpm</li>
-    </a>
-    <a class="quote" id="alec-baldwin-departed" data-wpm="200" href="">
-      <li>Alec Baldwin, "The Departed", 200 wpm</li>
-    </a>
-    <a class="quote" id="the-emperor-jedi" data-wpm="350" href="">
-      <li>The Emperor, "Return of the Jedi", 350 wpm</li>
-    </a>
-    <a class="quote" id="ferris-bueller" data-wpm="450" href="">
-      <li>Ferris Bueller, "Ferris Bueller's Day Off", 450 wpm</li>
-    </a>
-    <a class="quote" id="denzel-washington" data-wpm="650" href="">
-      <li>Denzel Washington, "Training Day", 650 wpm</li>
-    </a>
-  </ul>
+  <div class="sidebar-container-header">Samples</div>
+
+  <button id="cj-app-academy" data-wpm="100" class="left-sample-button">CJ, 100 WPM</button>
+  <button id="alec-baldwin-departed" data-wpm="200" class="left-sample-button">The Departed, 200 WPM</button>
+  <button id="the-emperor-jedi" data-wpm="300" class="left-sample-button">Return of the Jedi, 300 WPM</button>
+  <button id="harry-potter" data-wpm="400" class="left-sample-button">Harry Potter, 400 WPM</button>
+  <button id="ferris-bueller" data-wpm="500" class="left-sample-button">Ferris Bueller, 500 WPM</button>
+
 </div>
 
 <div class='sidebar-container' id="sidebar-right">
-  <h3>How to use SpeedReader</h3>
-  <h4>Pause: Spacebar</h4>
-  <h4>Faster: Right arrow</h4>
-  <h4>Slower: Left arrow</h4>
+  <div class="sidebar-container-header">Directions</div>
+  <div class="sidebar-container-header">Pause: Space</div>
+  <div class="sidebar-container-header">Faster: Right</div>
+  <div class="sidebar-container-header">Slower: Left</div>
 </div>
 
 
@@ -42,9 +32,10 @@
 
     <div id="text-input">
       <form id="text-input-form">
-        <label>Insert text here:<br>
-          <input id="text-area-box-input" type="textarea" name="text[body]">
-        </label><br>
+
+        <label>Insert Text Here:
+          <textarea id="text-area-box-input" form="text-input-form" name="text[body]" rows="10"></textarea>
+        </label>
 
         <label>Set words per minute:<br>
           <input id="input-speed-box" type="text" name="text[speed]" value="500">

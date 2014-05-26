@@ -33,6 +33,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     "click form input#speed-select-slider": "alignSliderAndInput",
     "submit form": "handleFormSubmit",
     "click .quote": "handleQuoteClick",
+    "click .left-sample-button": "handleQuoteClick",
   },
 
   keys: {
@@ -272,7 +273,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
 
     "ferris-bueller": "The key to faking out the parents is the clammy hands. It's a good non-specific symptom; I'm a big believer in it. A lot of people will tell you that a good phony fever is a dead lock, but, uh... you get a nervous mother, you could wind up in a doctor's office. That's worse than school. You fake a stomach cramp, and when you're bent over, moaning and wailing, you lick your palms. It's a little childish and stupid, but then, so is high school.",
 
-    "denzel-washington": "S.I.S. Detective. Give me 18 months, I'll give you a career. We're an elite unit. We make the big seizures. We make the big arrests. But if you're in my unit, you gotta be in it all the way or not at all. I thought that you was man enough to face that. I guess I was wrong. Five proven, decorated officers say that you're the shooter. The investigators are gonna want to pull a tube of your blood to check for intoxicants, and what are they gonna find, Jake? Do the math. You've been smoking PCP all day, haven't you?",
+    "harry-potter": "There was a clatter as the basilisk fangs cascaded out of Hermione's arms. Running at Ron, she flung them around his neck and kissed him full on the mouth. Ron threw away the fangs and broomstick he was holding and responded with such enthusiasm that he lifted Hermione off her feet. \"Is this the moment?\" Harry asked weakly, and when nothing happened except that Ron and Hermione gripped each other still more firmly and swayed on the spot, he raised his voice. \"OI! There's a war going on here!\" Ron and Hermione broke apart, their arms still around each other. \"I know, mate,\" said Ron, who looked as though he had recently been hit on the back of the head with a Bludger, \"so it's now or never, isn't it?\" \"Never mind that, what about the Horcrux?\" Harry shouted. \"D'you think you could just --- just hold it in, until we've got the diadem?\" \"Yeah --- right --- sorry ---\" said Ron, and he and Hermione set about gathering up fangs, both pink in the face."
 
   },
 
