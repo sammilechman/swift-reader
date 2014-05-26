@@ -188,7 +188,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
 
     wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
-        view.alterUserStats(view.currentProgress);
+        if (view.userId !== -1) {
+          view.alterUserStats(view.currentProgress);
+        }
+
         view.currentProgress = 0;
 
         window.clearInterval(wordInterval);
