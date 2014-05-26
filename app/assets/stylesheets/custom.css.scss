@@ -7,16 +7,6 @@ $standard-width-middle: 500px;
 $color-dark-gray: #222222;
 $color-light-gray: #888888;
 
-@font-face {
-  font-family: "Fira Sans Medium";
-  src: url(/assets/FiraSans-Medium.otf) format("truetype");
-}
-
-@font-face {
-  font-family: "Source Code Pro Medium";
-  src: url(/assets/SourceCodePro-Medium.otf.woff) format("truetype");
-}
-
 * {
 //  font-family: "Museo Sans";
 }
@@ -31,22 +21,6 @@ body {
   height: 100%;
   padding: 0;
 //  overflow: hidden;
-}
-
-div#center-container {
-//  padding-top: $standard-padding;
-}
-
-div.sidebar-container-header {
-  background-color: $color-light-gray;
-  border: $standard-border;
-  color: black;
-  width: 100%;
-  height: 50px;
-  display: inline-block;
-  font-size: 30px;
-  text-align: center;
-//  text-size: 25px;
 }
 
 button.left-sample-button {
@@ -89,9 +63,9 @@ div#reader {
   color: white;
   font-size: 50px;
   height: 100px;
-  margin-bottom: $standard-margin-medium;
-  margin-left: auto;
-  margin-right: auto;
+  margin: $standard-margin-medium;
+//  margin-left: auto;
+//  margin-right: auto;
   margin-top: $standard-margin-medium;
   overflow: hidden;
 //  padding-top: $standard-padding;
@@ -101,14 +75,10 @@ div#reader {
 
 div#reader-words {
   font-family: "Source Code Pro Medium";
-//  font-family: "Courier New" !important;
   line-height: 50px;
   position: relative;
-
   top: 25px;
 }
-
-
 
 div.sidebar-container {
   font-family: "Museo Sans";
@@ -127,13 +97,19 @@ div#sidebar-left {
   float: left;
 }
 
-div#sidebar-right {
-  float: right;
-}
-
 .focus-letter {
   color: #FFD073;
   background-color: #2A4480;
+}
+
+@font-face {
+  font-family: "Fira Sans Medium";
+  src: url(/assets/FiraSans-Medium.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "Source Code Pro Medium";
+  src: url(/assets/SourceCodePro-Medium.otf.woff) format("truetype");
 }
 
 form#text-input-form {
@@ -142,6 +118,18 @@ form#text-input-form {
 
 form#text-input-form * {
   width: 100%;
+}
+
+span.pull-left-and-center {
+  float: left;
+  text-align: center;
+  width: 44%;
+}
+
+span.pull-right-and-center {
+  float: right;
+  text-align: center;
+  width: 44%;
 }
 
 span#reader-words-left {
@@ -162,11 +150,11 @@ span#reader-words-right {
 
 #text-input {
   background-color: white;
-//  border: 2px solid black;
+  border: $standard-border;
 //  border-radius: $standard-border-radius;
-  margin: 10px;
+  float: left;
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: 500px;
 }
