@@ -7,6 +7,11 @@ $standard-width-middle: 500px;
 $color-dark-gray: #222222;
 $color-light-gray: #888888;
 
+@font-face {
+  font-family: "Fira Sans Medium";
+  src: url(/assets/FiraSans-Medium.otf) format("truetype");
+}
+
 * {
 //  font-family: "Museo Sans";
 }
@@ -73,7 +78,8 @@ div#reader {
 }
 
 div#reader-words {
-  font-family: "Courier New" !important;
+//  font-family: "Fira Sans Medium";
+//  font-family: "Courier New" !important;
   line-height: 50px;
   position: relative;
   top: 25px;
