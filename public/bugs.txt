@@ -20,3 +20,5 @@ List of Bugs to Fix:
 
 - Changing WPM during render via slider has no effect until pause/unpause.
 
+- Need to auto blur to prevent re space to button.
+

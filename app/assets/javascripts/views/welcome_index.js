@@ -23,17 +23,16 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  // triggerSliderChange: function() {
-  //   $("#input-speed-box").trigger("change");
-  // },
-
   events: {
-    "change form input#input-speed-box": "alignSliderAndInput",
-    // "keyup form input#input-speed-box": "triggerSliderChange",
-    "click form input#speed-select-slider": "alignSliderAndInput",
+    "change form input#input-speed-box": "alignSpeed",
     "submit form": "handleFormSubmit",
-    "click .quote": "handleQuoteClick",
     "click .left-sample-button": "handleQuoteClick",
+    "click button": "loseFocus",
+  },
+
+  loseFocus: function() {
+
+    $("#reader-input-container").focus();
   },
 
   keys: {
@@ -59,6 +58,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
 
       $("#input-speed-box").val(newSpeed);
       this.calculateSpeed();
+      this.alignSpeedBar();
 
       if (this.inRenderProcess) {
         this.renderWordsArray(this.currentWordsArray, this.currentProgress);
@@ -81,12 +81,16 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     })
   },
 
-  alignSliderAndInput: function(event) {
+  alignSpeed: function(event) {
     // alert("CHANGE")
     var speed = $(event.currentTarget).val();
     console.log(speed);
     $("#input-speed-box").val(speed);
-    $("#speed-select-slider").val(speed);
+    this.alignSpeedBar();
+  },
+
+  alignSpeedBar: function() {
+    $("#progress-bar").progressbar("option", "value", this.speed/10);
   },
 
   calculateFocusLetter: function(word) {
@@ -122,6 +126,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
     //The string and speed from the user's input.
     var words = $(event.currentTarget).serializeJSON().text.body;
     var speed = this.calculateSpeed();
+    this.alignSpeedBar();
 
     wordsArray = [];
     //Split by any whitespace to form words array.
@@ -149,6 +154,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
   },
 
   handleKeyboardInput: function(event, name){
+
     switch(name) {
     case "space":
       this.alterSpeed("pause");
@@ -166,6 +172,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
       alert("DOWN");
       break;
     }
+
   },
 
   handleQuoteClick: function(event) {
@@ -175,9 +182,9 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
 
     $("#text-area-box-input").val(thisQuote);
     $("#input-speed-box").val(thisSpeed);
-    $("#speed-select-slider").val(thisSpeed);
 
     $("#text-input-form").submit();
+    $(event.currentTarget).blur();
   },
 
   renderWordsArray: function(wordsArr, startingPos) {
