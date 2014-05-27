@@ -23,7 +23,7 @@ body {
 //  overflow: hidden;
 }
 
-button.left-sample-button {
+button.left-sidebar-button {
   width: 100%;
   height: 50px;
 }
@@ -39,7 +39,7 @@ div.collapse.navbar-collapse {
 div#content {
   background-color: $color-light-gray;
 //  border: $standard-border;
-  height: 512px;
+  height: 556px;
   width: 712px;
   margin-top: 0;
   margin-left: $standard-margin-medium;
@@ -123,18 +123,6 @@ form#text-input-form {
 
 form#text-input-form * {
   width: 100%;
-}
-
-span.pull-left-and-center {
-  float: left;
-  text-align: center;
-  width: 44%;
-}
-
-span.pull-right-and-center {
-  float: right;
-  text-align: center;
-  width: 44%;
 }
 
 span#reader-words-left {

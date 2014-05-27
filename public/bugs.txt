@@ -22,3 +22,5 @@ List of Bugs to Fix:
 
 - Need to auto blur to prevent re space to button.
 
+- Stats don't update until page refresh.
+

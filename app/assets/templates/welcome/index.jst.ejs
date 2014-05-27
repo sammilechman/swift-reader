@@ -1,43 +1,29 @@
 <div class='sidebar-container' id="sidebar-left">
   <div class="sidebar-container-header">Samples</div>
 
-  <button id="cj-app-academy" data-wpm="100" class="left-sample-button">CJ, 100 WPM</button>
-  <button id="alec-baldwin-departed" data-wpm="200" class="left-sample-button">The Departed, 200 WPM</button>
-  <button id="the-emperor-jedi" data-wpm="300" class="left-sample-button">Return of the Jedi, 300 WPM</button>
-  <button id="harry-potter" data-wpm="400" class="left-sample-button">Harry Potter, 400 WPM</button>
-  <button id="ferris-bueller" data-wpm="500" class="left-sample-button">Ferris Bueller, 500 WPM</button>
+  <button id="cj-app-academy" data-wpm="100" class="left-sample-button left-sidebar-button">CJ, 100 WPM</button>
+  <button id="alec-baldwin-departed" data-wpm="200" class="left-sample-button left-sidebar-button">The Departed, 200 WPM</button>
+  <button id="the-emperor-jedi" data-wpm="300" class="left-sample-button left-sidebar-button">Return of the Jedi, 300 WPM</button>
+  <button id="harry-potter" data-wpm="400" class="left-sample-button left-sidebar-button">Harry Potter, 400 WPM</button>
+  <button id="ferris-bueller" data-wpm="500" class="left-sample-button left-sidebar-button">Ferris Bueller, 500 WPM</button>
 
 
-  <div class="sidebar-container-header">Directions</div>
+  <div class="sidebar-container-header">Controls</div>
 
-  <button class="left-sample-button">
-    <span class="pull-left-and-center">
-      Pause/Go
-    </span>
-    <span class="glyphicon glyphicon-play-circle"></span>
-    <span class="pull-right-and-center">
-      Spacebar
-    </span>
+  <button id="start-button" class="control-button left-sidebar-button">
+    Start / Pause
   </button>
 
-  <button class="left-sample-button">
-    <span class="pull-left-and-center">
-      Faster
-    </span>
-    <span class="glyphicon glyphicon-plus"></span>
-    <span class="pull-right-and-center">
-      Right
-    </span>
+  <button id="faster-button" class="control-button left-sidebar-button">
+    Faster
   </button>
 
-  <button class="left-sample-button">
-    <span class="pull-left-and-center">
-      Slower
-    </span>
-    <span class="glyphicon glyphicon-minus"></span>
-    <span class="pull-right-and-center">
-      Left
-    </span>
+  <button id="slower-button" class="control-button left-sidebar-button">
+    Slower
+  </button>
+
+  <button id="reset-button" class="control-button left-sidebar-button">
+    Reset
   </button>
 </div>
 
@@ -59,19 +45,12 @@
       <form id="text-input-form">
 
         <label>Insert Text Here:
-          <textarea id="text-area-box-input" form="text-input-form" name="text[body]" rows="13"></textarea>
+          <textarea id="text-area-box-input" form="text-input-form" name="text[body]" rows="18"></textarea>
         </label>
 
         <label>Words per Minute:<br>
           <input id="input-speed-box" type="text" name="text[speed]" value="500">
         </label>
-
-         <div id='progress-bar'></div>
-         <script>
-           $("#progress-bar").progressbar({
-             value:50,
-           });
-         </script>
 
       </form>
     </div>

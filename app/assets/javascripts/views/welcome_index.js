@@ -4,15 +4,15 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   tagName: "index",
 
   initialize: function() {
-    this.speed;
+    this.speed = 500;
     this.wordDelay;
     this.inRenderProcess = false;
     this.currentProgress = 0;
     this.currentWordsArray = [];
     this.sessionTotalWordsRead = 0;
-    this.subviews = [];
     this.setUpDeadLinks();
     this.userId = ($("body").attr("data-id") || -1);
+    this.wordInterval;
   },
 
   render: function() {
@@ -27,16 +27,11 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     "change form input#input-speed-box": "alignSpeed",
     "submit form": "handleFormSubmit",
     "click .left-sample-button": "handleQuoteClick",
-    "click button": "loseFocus",
-  },
-
-  loseFocus: function() {
-
-    $("#reader-input-container").focus();
+    "click .control-button": "handleControlClick",
   },
 
   keys: {
-    'left right up down space': 'handleKeyboardInput',
+    'left right': 'handleKeyboardInput',
   },
 
   alterSpeed: function(direction){
@@ -49,7 +44,11 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     } else if (direction === "pause" && !this.inRenderProcess) {
       this.calculateSpeed();
-      this.renderWordsArray(this.currentWordsArray, this.currentProgress);
+      if (this.currentWordsArray.length === 0) {
+        this.handleFormSubmit();
+      } else {
+        this.renderWordsArray(this.currentWordsArray, this.currentProgress);
+      }
 
     } else if (direction === "slower" || direction === "faster") {
       if (direction === "slower") {
@@ -60,7 +59,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
       $("#input-speed-box").val(newSpeed);
       this.calculateSpeed();
-      this.alignSpeedBar();
 
       if (this.inRenderProcess) {
         this.renderWordsArray(this.currentWordsArray, this.currentProgress);
@@ -88,11 +86,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     var speed = $(event.currentTarget).val();
     console.log(speed);
     $("#input-speed-box").val(speed);
-    this.alignSpeedBar();
-  },
-
-  alignSpeedBar: function() {
-    $("#progress-bar").progressbar("option", "value", this.speed/10);
   },
 
   calculateFocusLetter: function(word) {
@@ -121,14 +114,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   handleFormSubmit: function(event) {
-    event.preventDefault();
-
-    if (this.inRenderProcess) { return; }
+    // if (this.inRenderProcess) { return; }
 
     //The string and speed from the user's input.
-    var words = $(event.currentTarget).serializeJSON().text.body;
-    var speed = this.calculateSpeed();
-    this.alignSpeedBar();
+    var words = $("#text-area-box-input").serializeJSON().text.body;
 
     wordsArray = [];
     //Split by any whitespace to form words array.
@@ -144,6 +133,27 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     return this.renderWordsArray(wordsArray);
   },
 
+  handleControlClick: function(event) {
+    event.preventDefault();
+    var action = event.currentTarget.id;
+
+    switch(action) {
+    case "start-button":
+      this.alterSpeed("pause");
+      break;
+    case "faster-button":
+      this.alterSpeed("faster");
+      break;
+    case "slower-button":
+      this.alterSpeed("slower");
+      break;
+    case "reset-button":
+      this.alterSpeed("pause");
+      Backbone.history.loadUrl();
+      break;
+    }
+  },
+
   handleFocusLetter: function(word, int) {
     str = [];
     str.push("<span class='focus-letter'>");
@@ -156,37 +166,28 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   handleKeyboardInput: function(event, name){
-
     switch(name) {
-    case "space":
-      this.alterSpeed("pause");
-      break;
     case "left":
       this.alterSpeed("slower");
       break;
     case "right":
       this.alterSpeed("faster");
       break;
-    case "up":
-      alert("UP");
-      break;
-    case "down":
-      alert("DOWN");
-      break;
     }
-
   },
 
   handleQuoteClick: function(event) {
     event.preventDefault();
     var thisQuote = this.quoteData[event.currentTarget.id];
-    var thisSpeed = $(event.currentTarget).data("wpm")
+    var thisSpeed = $(event.currentTarget).data("wpm");
+
+    this.currentWordsArray = [];
+    this.inRenderProcess = false;
 
     $("#text-area-box-input").val(thisQuote);
     $("#input-speed-box").val(thisSpeed);
 
-    $("#text-input-form").submit();
-    $(event.currentTarget).blur();
+    $("#start-button").click();
   },
 
   renderWordsArray: function(wordsArr, startingPos) {
