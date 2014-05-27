@@ -67,20 +67,20 @@
              value="POST">
 
           <label for="user_email">Email</label>
-          <input
+          <br><input
              id="user_email"
              name="user[email]"
              type="text">
           <br>
 
           <label for="user_password">Password</label>
-          <input
+          <br><input
              id="user_password"
              name="user[password]"
              type="password">
           <br>
 
-          <input type="submit" value="Create">
+          <br><input type="submit" value="Create">
         </form>
       </div>
       <div class="modal-footer">
@@ -106,20 +106,20 @@
           <%= auth_token_input %>
 
           <label for="user_email">Email</label>
-          <input
+          <br><input
              id="user_email"
              name="user[email]"
              type="text">
           <br>
 
           <label for="user_password">Password</label>
-          <input
+          <br><input
              id="user_password"
              name="user[password]"
              type="password">
           <br>
 
-          <input type="submit" value="Log in">
+          <br><input type="submit" value="Log in">
 
         </form>
       </div>
@@ -148,7 +148,6 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active link-to-reader"><a href="">Home</a></li>
 
         <li data-toggle="modal" data-target="#aboutModal" class="dead-link"><a href="">Why use SpeedReader?</a></li>
         <% if signed_in? %>
@@ -164,6 +163,13 @@
             </a>
           </li>
         <% end %>
+
+        <% if flash[:errors] %>
+            <li class="dead-link" data-toggle="modal" data-target="#sessionNewModal">
+              <a style="color:red" href=""><%= flash[:errors] %></a>
+            </li>
+        <% end %>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
@@ -197,11 +203,12 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<% if flash[:errors] %>
-  <div id="flash-errors">
-    <%= flash[:errors] %>
-  </div>
-<% end %>
+
+
+
+
+
+
 
 
 <div id="content">

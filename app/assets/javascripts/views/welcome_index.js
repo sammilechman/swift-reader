@@ -40,7 +40,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   alterSpeed: function(direction){
-    window.clearInterval(wordInterval);
+
+    if (this.wordInterval !== undefined) {
+      window.clearInterval(this.wordInterval);
+    }
 
     if (direction === "pause" && this.inRenderProcess) {
       this.inRenderProcess = false;
@@ -194,7 +197,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     if (typeof(startingPos)==='undefined') startingPos = 0;
     wordsArr.slice(startingPos);
 
-    wordInterval = window.setInterval(function() {
+    this.wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
         if (view.userId !== -1) {
           view.alterUserStats(view.currentProgress);
@@ -202,7 +205,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
         view.currentProgress = 0;
 
-        window.clearInterval(wordInterval);
+        window.clearInterval(this.wordInterval);
         view.inRenderProcess = false;
       }
       shiftOff(wordsArr);
