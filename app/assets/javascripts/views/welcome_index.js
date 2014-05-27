@@ -11,7 +11,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     this.currentWordsArray = [];
     this.sessionTotalWordsRead = 0;
     this.subviews = [];
-    this.setUpBindings();
+    this.setUpDeadLinks();
     this.userId = ($("body").attr("data-id") || -1);
   },
 
@@ -228,18 +228,12 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     };
   },
 
-  setUpBindings: function() {
+  setUpDeadLinks: function() {
     // var view = this;
-    var about = $(".link-to-about-page");
-    var user = $(".link-to-user-page");
+    var link = $(".dead-link");
 
-    about.on("click", function(event) {
+    link.on("click", function(event) {
       event.preventDefault();
-      // view.subviewAboutShow();
-    });
-    user.on("click", function(event) {
-      event.preventDefault();
-      // view.subviewUserShow();
     });
   },
 

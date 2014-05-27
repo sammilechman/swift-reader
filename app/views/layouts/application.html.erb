@@ -11,7 +11,9 @@
 <body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
 
-<!-- Modal -->
+
+
+<!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -27,7 +29,9 @@
         <strong><em>What's up with the highlighted letter?</em></strong><br>
         This feature makes SpeedReader easier to digest. The "pivot letter" is where your eye would naturally fall when reading normally as your brain processes the information on the page. Building the word around the pivot letter allows for a more natural reading experience.<br><br>
         <strong><em>Is reading comprehension as good when using SpeedReader?</em></strong><br>
-        Nobody knows. This is a very new technology. I take no responsibility for tests you may fail while using this product to study.<br><br>
+        Nobody knows. This is a very new technology. I take no responsibility for tests you may fail while using this product to study. :-)<br><br>
+        <strong><em>Why should I sign up?</em></strong><br>
+        If you sign up for a free account, you'll automatically track your reading statistics, including average speed and total words read.<br><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -35,6 +39,98 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<!-- New User Modal -->
+<div class="modal fade" id="userNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create a Free Account</h4>
+      </div>
+      <div class="modal-body">
+
+        <form action="<%= users_url %>" method="post">
+          <%= auth_token_input %>
+
+          <input type="hidden" name="user[total_words]" value="0">
+          <input type="hidden" name="user[total_time]" value="0">
+          <input type="hidden" name="user[average_speed]" value="0">
+
+          <input
+             name="_method"
+             type="hidden"
+             value="POST">
+
+          <label for="user_email">Email</label>
+          <input
+             id="user_email"
+             name="user[email]"
+             type="text">
+          <br>
+
+          <label for="user_password">Password</label>
+          <input
+             id="user_password"
+             name="user[password]"
+             type="password">
+          <br>
+
+          <input type="submit" value="Create">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- New Session Modal -->
+<div class="modal fade" id="sessionNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign in</h4>
+      </div>
+      <div class="modal-body">
+
+        <form action="<%= session_url %>" method="post">
+          <%= auth_token_input %>
+
+          <label for="user_email">Email</label>
+          <input
+             id="user_email"
+             name="user[email]"
+             type="text">
+          <br>
+
+          <label for="user_password">Password</label>
+          <input
+             id="user_password"
+             name="user[password]"
+             type="password">
+          <br>
+
+          <input type="submit" value="Log in">
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <nav class="navbar navbar-default" style="border-radius:0" role="navigation">
   <div class="container-fluid">
@@ -54,16 +150,16 @@
       <ul class="nav navbar-nav">
         <li class="active link-to-reader"><a href="">Home</a></li>
 
-        <li data-toggle="modal" data-target="#aboutModal" class="link-to-about-page"><a href="">Why use SpeedReader?</a></li>
+        <li data-toggle="modal" data-target="#aboutModal" class="dead-link"><a href="">Why use SpeedReader?</a></li>
         <% if signed_in? %>
-          <li class="link-to-user-page">
+          <li class="dead-link">
             <a href="">
               <%= current_user.email %>
             </a>
           </li>
         <% else %>
-          <li>
-            <a href="<%= new_user_url %>">
+          <li class="dead-link" data-toggle="modal" data-target="#userNewModal">
+            <a href="">
               Create Account
             </a>
           </li>
@@ -71,7 +167,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li class="link-to-user-page">
+          <li class="dead-link">
             <a href=""><span class="glyphicon glyphicon-ok-circle"></span> Logged in as <%= current_user.email %></a>
           </li>
         <% end %>
@@ -83,11 +179,11 @@
                 <a data-method="DELETE" href="<%= session_url %>">Logout</a>
               </li>
               <li class="divider"></li>
-              <li class="link-to-user-page"><a href=""><%= current_user.email %></a></li>
-              <li class="link-to-settings-page"><a href="#/user/<%= current_user.id %>/preferences">Account Settings</a></li>
+              <li class="dead-link"><a href=""><%= current_user.email %></a></li>
+              <li class="dead-link"><a href="#/user/<%= current_user.id %>/preferences">Account Settings</a></li>
             <% else %>
-              <li><a href="<%= new_session_url %>">Login</a></li>
-              <li><a href="<%= new_user_url %>">Create account</a></li>
+              <li class="dead-link" data-toggle="modal" data-target="#sessionNewModal"><a href="">Login</a></li>
+              <li class="dead-link" data-toggle="modal" data-target="#userNewModal"><a href="">Create account</a></li>
               <li class="divider"></li>
             <% end %>
 
