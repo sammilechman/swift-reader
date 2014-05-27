@@ -229,41 +229,12 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   setUpDeadLinks: function() {
-    // var view = this;
     var link = $(".dead-link");
 
     link.on("click", function(event) {
       event.preventDefault();
     });
   },
-
-  // subviewUserShow: function() {
-  //   _(this.subviews).each(function(subview) {
-  //     subview.remove();
-  //   });
-  //   var container = "#right-container";
-  //   // var userShowView = new SpeedReader.Views.WelcomeUser();
-  //
-  //   var user = this.collection.get(this.userId);
-  //   var userShowView = new SpeedReader.Views.WelcomeUser({
-  //       model: user
-  //   });
-  //
-  //   this.subviews.push(userShowView);
-  //
-  //   this.attachSubview(container, userShowView);
-  // },
-  //
-  // subviewAboutShow: function(){
-  //   _(this.subviews).each(function(subview) {
-  //     subview.remove();
-  //   });
-  //   var container = "#right-container";
-  //   var aboutShowView = new SpeedReader.Views.WelcomeAbout();
-  //   this.subviews.push(aboutShowView);
-  //
-  //   this.attachSubview(container, aboutShowView);
-  // },
 
   quoteData: {
     "cj-app-academy": "Back to work!",
