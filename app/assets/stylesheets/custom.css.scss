@@ -39,7 +39,7 @@ div.collapse.navbar-collapse {
 div#content {
   background-color: $color-light-gray;
 //  border: $standard-border;
-  height: 90%;
+  height: 512px;
   margin-top: 0;
   margin-left: $standard-margin-medium;
   margin-right: $standard-margin-medium;
@@ -70,11 +70,7 @@ div#reader-words {
 
 #reader-input-container {
   background-image: url("../images/background-pattern.jpg");
-  float: left;
-  display: inline-block;
   height: 100%;
-  margin-right: $standard-margin-medium;
-//  padding: $standard-padding;
 }
 
 #right-container {
@@ -134,11 +130,6 @@ form#text-input-form {
 
 form#text-input-form * {
   width: 100%;
-}
-
-#right-container {
-  padding: $standard-padding;
-  position: relative;
 }
 
 span.pull-left-and-center {
