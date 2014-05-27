@@ -1,4 +1,4 @@
-SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
+SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   template: JST["welcome/index"],
 
   tagName: "index",
@@ -229,47 +229,47 @@ SpeedReader.Views.WelcomeIndex = Backbone.CompositeView.extend({
   },
 
   setUpBindings: function() {
-    var view = this;
+    // var view = this;
     var about = $(".link-to-about-page");
     var user = $(".link-to-user-page");
 
     about.on("click", function(event) {
       event.preventDefault();
-      view.subviewAboutShow();
+      // view.subviewAboutShow();
     });
     user.on("click", function(event) {
       event.preventDefault();
-      view.subviewUserShow();
+      // view.subviewUserShow();
     });
   },
 
-  subviewUserShow: function() {
-    _(this.subviews).each(function(subview) {
-      subview.remove();
-    });
-    var container = "#right-container";
-    // var userShowView = new SpeedReader.Views.WelcomeUser();
-
-    var user = this.collection.get(this.userId);
-    var userShowView = new SpeedReader.Views.WelcomeUser({
-        model: user
-    });
-
-    this.subviews.push(userShowView);
-
-    this.attachSubview(container, userShowView);
-  },
-
-  subviewAboutShow: function(){
-    _(this.subviews).each(function(subview) {
-      subview.remove();
-    });
-    var container = "#right-container";
-    var aboutShowView = new SpeedReader.Views.WelcomeAbout();
-    this.subviews.push(aboutShowView);
-
-    this.attachSubview(container, aboutShowView);
-  },
+  // subviewUserShow: function() {
+  //   _(this.subviews).each(function(subview) {
+  //     subview.remove();
+  //   });
+  //   var container = "#right-container";
+  //   // var userShowView = new SpeedReader.Views.WelcomeUser();
+  //
+  //   var user = this.collection.get(this.userId);
+  //   var userShowView = new SpeedReader.Views.WelcomeUser({
+  //       model: user
+  //   });
+  //
+  //   this.subviews.push(userShowView);
+  //
+  //   this.attachSubview(container, userShowView);
+  // },
+  //
+  // subviewAboutShow: function(){
+  //   _(this.subviews).each(function(subview) {
+  //     subview.remove();
+  //   });
+  //   var container = "#right-container";
+  //   var aboutShowView = new SpeedReader.Views.WelcomeAbout();
+  //   this.subviews.push(aboutShowView);
+  //
+  //   this.attachSubview(container, aboutShowView);
+  // },
 
   quoteData: {
     "cj-app-academy": "Back to work!",

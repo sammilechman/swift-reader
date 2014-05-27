@@ -10,6 +10,32 @@
 
 <body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
+
+<!-- Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">About SpeedReader</h4>
+      </div>
+      <div class="modal-body">
+        <strong><em>Who made SpeedReader?</em></strong><br>
+        SpeedReader is Sam Milechman's final project for <a href="http://www.appacademy.io/">App Academy</a>.<br><br>
+        <strong><em>What is the theory behind SpeedReader?</em></strong><br>
+        When reading on a physical page or a computer screen, the eye has to physically scan the page, jumping all the way back to the left at each line break. This continuous motion is limiting your reading speed. By rendering the words one by one and allowing your eyes to rest on a set space, you can easily read 2-4x as fast!<br><br>
+        <strong><em>What's up with the highlighted letter?</em></strong><br>
+        This feature makes SpeedReader easier to digest. The "pivot letter" is where your eye would naturally fall when reading normally as your brain processes the information on the page. Building the word around the pivot letter allows for a more natural reading experience.<br><br>
+        <strong><em>Is reading comprehension as good when using SpeedReader?</em></strong><br>
+        Nobody knows. This is a very new technology. I take no responsibility for tests you may fail while using this product to study.<br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <nav class="navbar navbar-default" style="border-radius:0" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,7 +54,7 @@
       <ul class="nav navbar-nav">
         <li class="active link-to-reader"><a href="">Home</a></li>
 
-        <li class="link-to-about-page"><a href="">Why use SpeedReader?</a></li>
+        <li data-toggle="modal" data-target="#aboutModal" class="link-to-about-page"><a href="">Why use SpeedReader?</a></li>
         <% if signed_in? %>
           <li class="link-to-user-page">
             <a href="">
