@@ -40,7 +40,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   alterSpeed: function(direction){
-
     if (this.wordInterval !== undefined) {
       window.clearInterval(this.wordInterval);
     }

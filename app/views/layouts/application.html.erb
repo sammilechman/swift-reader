@@ -132,6 +132,50 @@
 
 
 
+
+<!-- User Show Modal -->
+
+<% if signed_in? %>
+
+  <div class="modal fade" id="userShowModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Statistics: <%= current_user.email %></h4>
+        </div>
+        <div class="modal-body">
+
+          <% if current_user.total_time < 60 %>
+            <% time = current_user.total_time %>
+            <% format = "seconds" %>
+          <% elsif current_user.total_time < 3600 %>
+            <% time = current_user.total_time / 60 %>
+            <% format = "minutes" %>
+          <% else %>
+            <% time = current_user.total_time / 3600 %>
+            <% format = "hours" %>
+          <% end %>
+
+          <ul>
+            <li>Total words: <%= current_user.total_words %>
+            <li>Average Speed: <%= current_user.average_speed %> WPM
+            <li>Total time: <%= time %> <%= format %>
+          </ul>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
 <nav class="navbar navbar-default" style="border-radius:0" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -150,13 +194,7 @@
       <ul class="nav navbar-nav">
 
         <li data-toggle="modal" data-target="#aboutModal" class="dead-link"><a href="">Why use SpeedReader?</a></li>
-        <% if signed_in? %>
-          <li class="dead-link">
-            <a href="">
-              <%= current_user.email %>
-            </a>
-          </li>
-        <% else %>
+        <% if !signed_in? %>
           <li class="dead-link" data-toggle="modal" data-target="#userNewModal">
             <a href="">
               Create Account
@@ -173,7 +211,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li class="dead-link">
+          <li data-toggle="modal" data-target="#userShowModal" class="dead-link">
             <a href=""><span class="glyphicon glyphicon-ok-circle"></span> Logged in as <%= current_user.email %></a>
           </li>
         <% end %>
@@ -185,7 +223,7 @@
                 <a data-method="DELETE" href="<%= session_url %>">Logout</a>
               </li>
               <li class="divider"></li>
-              <li class="dead-link"><a href=""><%= current_user.email %></a></li>
+              <li data-toggle="modal" data-target="#userShowModal" class="dead-link"><a href=""><%= current_user.email %></a></li>
               <li class="dead-link"><a href="#/user/<%= current_user.id %>/preferences">Account Settings</a></li>
             <% else %>
               <li class="dead-link" data-toggle="modal" data-target="#sessionNewModal"><a href="">Login</a></li>
