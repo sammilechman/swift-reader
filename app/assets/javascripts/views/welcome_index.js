@@ -4,9 +4,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   tagName: "index",
 
   initialize: function() {
-    this.speed = 500;
+    this.speed = 220;
     this.wordDelay;
     this.inRenderProcess = false;
+    this.inputBox = $("#input-speed-box");
     this.currentProgress = 0;
     this.currentWordsArray = [];
     this.sessionTotalWordsRead = 0;
@@ -33,7 +34,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
   handleWPMClick: function(event) {
     event.preventDefault();
-    alert("YO")
+    $("#input-speed-box").val(event.currentTarget.id)
   },
 
   keys: {
