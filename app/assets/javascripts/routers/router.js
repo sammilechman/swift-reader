@@ -11,14 +11,12 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "index",
     "/": "index",
-    // "user/:id": "userShow",
-    "about": "about",
   },
 
-  about: function() {
-    var aboutView = new SpeedReader.Views.WelcomeAbout();
-    this._swapView(aboutView);
-  },
+  // about: function() {
+  //   var aboutView = new SpeedReader.Views.WelcomeAbout();
+  //   this._swapView(aboutView);
+  // },
 
   index: function() {
     var indexView = new SpeedReader.Views.WelcomeIndex({
@@ -27,15 +25,15 @@ SpeedReader.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  userShow: function(id) {
-    var router = this;
-    this._getUser(id, function(user) {
-      var userView = new SpeedReader.Views.WelcomeUser({
-        model: user
-      });
-      router._swapView(userView);
-    })
-  },
+  // userShow: function(id) {
+  //   var router = this;
+  //   this._getUser(id, function(user) {
+  //     var userView = new SpeedReader.Views.WelcomeUser({
+  //       model: user
+  //     });
+  //     router._swapView(userView);
+  //   })
+  // },
 
   _swapView: function(view) {
     if (this._currentView) {

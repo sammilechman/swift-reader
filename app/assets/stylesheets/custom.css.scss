@@ -17,7 +17,9 @@ html {
 }
 
 body {
-  background: url('../images/grunge-background-2.jpg');
+//  background: url('../images/grunge-background-2.jpg');
+  background: url("../images/background-pattern-3.jpg");
+  background: url("../images/sf.jpg");
   height: 100%;
   padding: 0;
 //  overflow: hidden;
@@ -30,6 +32,8 @@ button.left-sidebar-button {
 
 #center-container {
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.collapse.navbar-collapse {
@@ -37,10 +41,8 @@ div.collapse.navbar-collapse {
 }
 
 div#content {
-  background-color: $color-light-gray;
-//  border: $standard-border;
   height: 556px;
-  width: 712px;
+  width: 98%;
   margin-top: 0;
   margin-left: $standard-margin-medium;
   margin-right: $standard-margin-medium;
@@ -52,7 +54,8 @@ div#reader {
   font-size: 50px;
   height: 100px;
   margin: $standard-margin-small;
-  margin-left: 205px;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   text-align: center;
   width: $standard-width-middle;
@@ -66,8 +69,10 @@ div#reader-words {
 }
 
 #reader-input-container {
-  background-image: url("../images/background-pattern.jpg");
+//  background-image: url("../images/background-pattern-3.jpg");
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -76,7 +81,6 @@ div.sidebar-container {
   background-color: $color-dark-gray;
 //  border: $standard-border;
   color: $color-light-gray;
-  display: inline-block;
   height: 100%;
   margin: 0;
   margin-top: 0;
@@ -125,6 +129,10 @@ form#text-input-form * {
   width: 100%;
 }
 
+#sidebar-right {
+  float: right;
+}
+
 span#reader-words-left {
 //  background-color: red;
   line-height: 50px;
@@ -148,8 +156,8 @@ textarea {
 #text-input {
   background-color: white;
   border: $standard-border;
-//  border-radius: $standard-border-radius;
-  float: left;
   margin: $standard-margin-small;
+  margin-left: auto;
+  margin-right: auto;
   width: 500px;
 }

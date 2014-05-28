@@ -28,6 +28,12 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     "submit form": "handleFormSubmit",
     "click .left-sample-button": "handleQuoteClick",
     "click .control-button": "handleControlClick",
+    "click .wpm-picker": "handleWPMClick",
+  },
+
+  handleWPMClick: function(event) {
+    event.preventDefault();
+    alert("YO")
   },
 
   keys: {
@@ -82,7 +88,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   alignSpeed: function(event) {
-    // alert("CHANGE")
     var speed = $(event.currentTarget).val();
     console.log(speed);
     $("#input-speed-box").val(speed);
@@ -197,7 +202,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     if (typeof(startingPos)==='undefined') startingPos = 0;
     wordsArr.slice(startingPos);
 
-    this.wordInterval = window.setInterval(function() {
+    view.wordInterval = window.setInterval(function() {
       if (wordsArr.length == 0) {
         if (view.userId !== -1) {
           view.alterUserStats(view.currentProgress);
@@ -205,14 +210,15 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
         view.currentProgress = 0;
 
-        window.clearInterval(this.wordInterval);
+        window.clearInterval(view.wordInterval);
+
         view.inRenderProcess = false;
       }
       shiftOff(wordsArr);
     },this.wordDelay);
 
     function shiftOff(arr) {
-      if (arr.length == 0) {
+      if (arr.length <= 0) {
         $("#reader-words-left").html("Sp");
         $("#reader-words-right").html("<span class='focus-letter'>e</span>edReader");
         return;
@@ -236,6 +242,12 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     link.on("click", function(event) {
       event.preventDefault();
+    });
+
+    var userShow = $("#userShowModal");
+    userShow.on("click", function(event) {
+      event.preventDefault();
+      alert('this should be a backbone view, not in application.html.erb');
     });
   },
 

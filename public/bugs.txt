@@ -1,10 +1,5 @@
 List of Bugs to Fix:
 
-- Switching between Rails pages and Backbone pages. From the Create Account page (a Rails page), clicking on Contact (a Backbone page) results in the url "http://localhost:3000/users/new#/contact", but it should result in "http://localhost:3000/#/contact".
-
-- 99% html problem - don't want a scroll bar, this solves the default spacebar operation of scrolling down. (space for pause)
-
-- Slider bugs: Incorrectly syncs when typing in the box, but fixes when you tab back into the view. Doesn't sync dynamically.
 
 - Progress bar for reading completion.
 
@@ -24,3 +19,4 @@ List of Bugs to Fix:
 
 - Stats don't update until page refresh.
 
+- Collapse order - reader should be last.
