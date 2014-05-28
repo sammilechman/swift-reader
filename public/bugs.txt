@@ -5,17 +5,13 @@ List of Bugs to Fix:
 
 - Add pause to nav bar when paused, along with other notifications of reader.
 
-- Spacebar/arrow before rendering -> error.
+- If paused, reset causes resume rendering.
 
 - Settings page non existant.
 
 - Click on "Speed Read It!", afterwords, focus is on that bar and spacebar will "click" that, not pausing correctly.
 
 - Alter pause length based on word length?
-
-- Changing WPM during render via slider has no effect until pause/unpause.
-
-- Need to auto blur to prevent re space to button.
 
 - Stats don't update until page refresh.
 
