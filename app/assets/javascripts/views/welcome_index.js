@@ -34,7 +34,12 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
   handleWPMClick: function(event) {
     event.preventDefault();
-    $("#input-speed-box").val(event.currentTarget.id)
+    $("#input-speed-box").val(event.currentTarget.id);
+    if (this.inRenderProcess) {
+      //This double-pause is a workaround. Results in instant speed change.
+      this.alterSpeed("pause");
+      this.alterSpeed("pause");
+    }
   },
 
   keys: {
@@ -42,9 +47,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   alterSpeed: function(direction){
-    if (this.wordInterval !== undefined) {
-      window.clearInterval(this.wordInterval);
-    }
+    this.attemptClearInterval();
 
     if (direction === "pause" && this.inRenderProcess) {
       this.inRenderProcess = false;
@@ -94,6 +97,12 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     $("#input-speed-box").val(speed);
   },
 
+  attemptClearInterval: function() {
+    if (this.wordInterval !== undefined) {
+      window.clearInterval(this.wordInterval);
+    }
+  },
+
   calculateFocusLetter: function(word) {
     var l = word.length;
 
@@ -120,8 +129,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
   },
 
   handleFormSubmit: function(event) {
-    // if (this.inRenderProcess) { return; }
-
     //The string and speed from the user's input.
     var words = $("#text-area-box-input").serializeJSON().text.body;
 
@@ -154,6 +161,9 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
       this.alterSpeed("slower");
       break;
     case "reset-button":
+      // This is a workaround - prevents bug that would render from paused.
+      this.inRenderProcess = true;
+
       this.alterSpeed("pause");
       Backbone.history.loadUrl();
       break;
@@ -220,8 +230,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
     function shiftOff(arr) {
       if (arr.length <= 0) {
-        $("#reader-words-left").html("Sp");
-        $("#reader-words-right").html("<span class='focus-letter'>e</span>edReader");
         return;
       } else {
         var word = arr.shift();

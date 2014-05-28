@@ -6,7 +6,7 @@ $standard-margin-medium: 10px;
 $standard-width-middle: 500px;
 $color-dark-gray: #222222;
 $color-light-gray: #888888;
-$color-highlight: #7C6ED7;
+//$color-highlight: #7C6ED7;
 
 #bg {
   position: fixed;
@@ -47,15 +47,11 @@ div.collapse.navbar-collapse {
 }
 
 .focus-letter {
-//  color: #FFD073;
-//  background-color: #2A4480;
-//  color: black;
   border-radius: 8px;
-//  background-color: $color-light-gray;
-  background: -webkit-radial-gradient(circle, $color-highlight, black); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle, $color-highlight, black); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle, $color-highlight, black); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle, $color-highlight, black); /* Standard syntax (must be last) */
+  background: -webkit-radial-gradient(circle, $color-light-gray, black); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle, $color-light-gray, black); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, $color-light-gray, black); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle, $color-light-gray, black); /* Standard syntax */
 }
 
 @font-face {
@@ -66,6 +62,11 @@ div.collapse.navbar-collapse {
 @font-face {
   font-family: "Source Code Pro Medium";
   src: url(/assets/SourceCodePro-Medium.otf.woff) format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway Bold";
+  src: url(/assets/Raleway-Bold.otf) format("truetype");
 }
 
 @font-face {
@@ -84,6 +85,14 @@ form#text-input-form * {
 html {
   height: 100%;
   width: 100%;
+}
+
+.modal {
+  font-family: "Raleway Regular";
+}
+
+.raleway-bold {
+  font-family: "Raleway Bold";
 }
 
 #navbar-logo-top-left {
@@ -120,10 +129,9 @@ html {
 }
 
 .sidebar-container {
-  font-family: "Museo Sans";
-//  font-family: "Raleway Regular";
+//  font-family: "Museo Sans";
+  font-family: "Raleway Regular";
   background-color: $color-dark-gray;
-//  border: $standard-border;
   color: $color-light-gray;
   height: 100%;
   margin: 0;
