@@ -18,3 +18,7 @@ List of Bugs to Fix:
 - Collapse order - reader should be last.
 
 - Clicking WPM bar WILL update the speed in box - but won't change rendering speed without pause.
+
+- www.swift-reader.com through godaddy.
+
+- Logo: Raleway (all regular)

@@ -60,6 +60,11 @@ div.collapse.navbar-collapse {
   src: url(/assets/SourceCodePro-Medium.otf.woff) format("truetype");
 }
 
+@font-face {
+  font-family: "Raleway Regular";
+  src: url(/assets/Raleway-Regular.otf) format("truetype");
+}
+
 form#text-input-form {
   margin: $standard-margin-small;
 }
@@ -71,6 +76,13 @@ form#text-input-form * {
 html {
   height: 100%;
   width: 100%;
+}
+
+#navbar-logo-top-left {
+  height: 25px;
+  position: relative;
+  top: -4px;
+  left: 4px;
 }
 
 #reader {
@@ -101,6 +113,7 @@ html {
 
 .sidebar-container {
   font-family: "Museo Sans";
+//  font-family: "Raleway Regular";
   background-color: $color-dark-gray;
 //  border: $standard-border;
   color: $color-light-gray;
@@ -113,7 +126,7 @@ html {
 
 .sidebar-container-header {
   border: $standard-border;
-  font-family: "Museo Sans";
+  font-family: "Raleway Regular";
   font-size: 20px;
   line-height: 50px;
   background-color: $color-light-gray;
