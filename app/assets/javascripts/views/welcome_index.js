@@ -30,11 +30,13 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     "click .left-sample-button": "handleQuoteClick",
     "click .control-button": "handleControlClick",
     "click .wpm-picker": "handleWPMClick",
+    "click button#start-button": "changeStartButtonColor",
   },
 
   handleWPMClick: function(event) {
     event.preventDefault();
     $("#input-speed-box").val(event.currentTarget.id);
+    this.setWPMIndicator();
     if (this.inRenderProcess) {
       //This double-pause is a workaround. Results in instant speed change.
       this.alterSpeed("pause");
@@ -69,6 +71,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
       $("#input-speed-box").val(newSpeed);
       this.calculateSpeed();
+      this.setWPMIndicator();
 
       if (this.inRenderProcess) {
         this.renderWordsArray(this.currentWordsArray, this.currentProgress);
@@ -126,6 +129,18 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
   calculateWordDelay: function() {
     this.wordDelay = ((60 / this.speed) * 1000);
+  },
+
+  changeStartButtonColor: function() {
+    if (this.currentWordsArray.length === 0) { return; }
+
+    if ($("#start-button").css("background-color") === "rgb(192, 192, 192)") {
+      $("#start-button").css({"background-color":"#A9BFD2"});
+    } else {
+      $("#start-button").css({"background-color":"rgb(192, 192, 192)"});
+    }
+
+    $("#start-button").blur();
   },
 
   handleFormSubmit: function(event) {
@@ -263,7 +278,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     var userShow = $("#userShowModal");
     userShow.on("click", function(event) {
       event.preventDefault();
-      alert('this should be a backbone view, not in application.html.erb');
     });
   },
 

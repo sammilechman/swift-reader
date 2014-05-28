@@ -1,15 +1,6 @@
 List of Bugs to Fix:
 
-
-- Progress bar for reading completion.
-
-- Add pause to nav bar when paused, along with other notifications of reader.
-
-- If paused, reset causes resume rendering.
-
 - Settings page non existant.
-
-- Click on "Speed Read It!", afterwords, focus is on that bar and spacebar will "click" that, not pausing correctly.
 
 - Alter pause length based on word length?
 
@@ -17,7 +8,11 @@ List of Bugs to Fix:
 
 - Collapse order - reader should be last.
 
-- Clicking WPM bar WILL update the speed in box - but won't change rendering speed without pause.
+- Border bottom on sidebars.
+
+
+
+Other notes:
 
 - www.swift-reader.com through godaddy.
 
