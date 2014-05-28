@@ -103,7 +103,7 @@ html {
 }
 
 #reader {
-  background-color: black;//#080E73;
+  background-color: black;
   color: white;
   font-size: 50px;
   height: 100px;
@@ -129,7 +129,6 @@ html {
 }
 
 .sidebar-container {
-//  font-family: "Museo Sans";
   font-family: "Raleway Regular";
   background-color: $color-dark-gray;
   color: $color-light-gray;
@@ -182,8 +181,14 @@ textarea {
 #text-input {
   background-color: white;
   border: $standard-border;
-  margin: $standard-margin-small;
+  font-family: "Raleway Bold";
+  margin: $standard-margin-medium;
   margin-left: auto;
   margin-right: auto;
   width: 500px;
+}
+
+#wpm-indicator {
+  margin-top: 0;
+  text-align: right;
 }

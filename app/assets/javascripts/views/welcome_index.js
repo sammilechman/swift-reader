@@ -206,8 +206,15 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     $("#start-button").click();
   },
 
+  setWPMIndicator: function() {
+    var content = $("#input-speed-box").serializeJSON().text.speed;
+    $("#wpm-indicator").html(content + " wpm")
+  },
+
   renderWordsArray: function(wordsArr, startingPos) {
     var view = this;
+
+    this.setWPMIndicator();
     this.inRenderProcess = true;
 
     if (typeof(startingPos)==='undefined') startingPos = 0;
