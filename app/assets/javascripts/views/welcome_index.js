@@ -279,6 +279,10 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     userShow.on("click", function(event) {
       event.preventDefault();
     });
+
+    $("#hidden-listener").on("change", function() {
+      alert("Changed");
+    });
   },
 
   quoteData: {
