@@ -6,7 +6,7 @@ $standard-margin-medium: 10px;
 $standard-width-middle: 500px;
 $color-dark-gray: #222222;
 $color-light-gray: #888888;
-//$color-highlight: #7C6ED7;
+$color-highlight: #A9BFD2;
 
 #bg {
   position: fixed;
@@ -51,11 +51,12 @@ div.collapse.navbar-collapse {
 }
 
 .focus-letter {
+  color: black;
   border-radius: 8px;
-  background: -webkit-radial-gradient(circle, $color-light-gray, black); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle, $color-light-gray, black); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle, $color-light-gray, black); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle, $color-light-gray, black); /* Standard syntax */
+  background: -webkit-radial-gradient(circle, $color-highlight, black); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle, $color-highlight, black); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, $color-highlight, black); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle, $color-highlight, black); /* Standard syntax */
 }
 
 @font-face {
