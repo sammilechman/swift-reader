@@ -31,6 +31,11 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     "click .control-button": "handleControlClick",
     "click .wpm-picker": "handleWPMClick",
     "click button#start-button": "changeStartButtonColor",
+    "change #hidden-listener": "asd"
+  },
+
+  asd: function() {
+    alert("HOOHO");
   },
 
   handleWPMClick: function(event) {
@@ -281,6 +286,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     });
 
     $("#hidden-listener").on("change", function() {
+      debugger
       alert("Changed");
     });
   },
