@@ -10,9 +10,13 @@
 
 <body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
-<% cache do %>
-  <div id="bg"><%= image_tag("clouds.jpg", { style: "min-width:1397px;min-height:100%;", width: "100%" }) %></div>
-<% end %>
+
+<div id="bg">
+  <% cache do %>
+    <%= image_tag("clouds.jpg", { style: "min-width:1397px;min-height:100%;", width: "100%" }) %>
+  <% end %>
+</div>
+
 
 <!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
