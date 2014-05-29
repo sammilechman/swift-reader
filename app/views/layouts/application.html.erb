@@ -12,7 +12,7 @@
 
 
 <div id="bg">
-  <% cache do %>
+  <% cache("cloud-image", expires_in: 1.year) do %>
     <%= image_tag("clouds.jpg", { style: "min-width:1397px;min-height:100%;", width: "100%" }) %>
   <% end %>
 </div>
