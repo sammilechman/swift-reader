@@ -10,6 +10,8 @@
 
 <body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
+  <span id="hidden-listener"></span>
+
 
 <div id="bg">
   <% cache("cloud-image", expires_in: 1.year) do %>
