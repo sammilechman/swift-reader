@@ -35,11 +35,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     "click .control-button": "handleControlClick",
     "click .wpm-picker": "handleWPMClick",
     "click button#start-button": "changeStartButtonColor",
-    "change #hidden-listener": "asd"
-  },
-
-  asd: function() {
-    alert("HOOHO");
   },
 
   handleWPMClick: function(event) {
@@ -184,7 +179,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
       this.alterSpeed("slower");
       break;
     case "reset-button":
-      $("#text-area-box-input").val("");
+      $("#text-area-box-input").val($("#hidden-listener").val(""));
       // This is a workaround - prevents bug that would render from paused.
       this.inRenderProcess = true;
 
