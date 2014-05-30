@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessor :password
+  attr_accessor :password, :favorite_speed
 
   validates :email, presence: true
 
