@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
     @user.update_attributes(user_params)
     @user.favorite_speed = user_params["favorite_speed"].to_i
     if @user.save
-      redirect_to root_url
+      render json: @user
     else
       render :json => @user.errors.full_messages, :status => 422
     end
