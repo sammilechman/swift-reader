@@ -12,13 +12,11 @@
 
 <textarea id="hidden-listener"></textarea>
 
-
 <div id="bg">
   <% cache("cloud-image", expires_in: 1.year) do %>
     <%= image_tag("clouds.jpg", { style: "min-width:1397px;min-height:100%;", width: "100%" }) %>
   <% end %>
 </div>
-
 
 <!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -46,11 +44,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 <!-- New User Modal -->
 <div class="modal fade" id="userNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,10 +91,30 @@
   </div>
 </div>
 
-
-
-
-
+<!-- Extension Modal -->
+<div class="modal fade" id="extensionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><span class="raleway-bold">Swift Chrome Extension</span></h4>
+      </div>
+      <div class="modal-body">
+        <span class="raleway-bold">What is it?</span><br>
+        The Swift Chrome extension is a free add-on for your Chrome browser. It allows you to highlight text anywhere on the web and Swift it.<br><br>
+        <span class="raleway-bold">Where do I get it?</span><br>
+        You can find it <a href="https://chrome.google.com/webstore/detail/swift-chrome-extension/pbabmjhfpjdmjapmggkhjleffjkkgbao">here</a>.<br><br>
+        <span class="raleway-bold">How do I set it up?</span><br>
+        1) Install the extension<br>
+        2) Highlight text anywhere on the web<br>
+        3) Right click and select "Swift it!"<br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- New Session Modal -->
 <div class="modal fade" id="sessionNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -141,15 +154,7 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
 <!-- User Show Modal -->
-
 <% if signed_in? %>
 
   <div class="modal fade" id="userShowModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -190,13 +195,6 @@
   </div>
 <% end %>
 
-
-
-
-
-
-
-
 <nav class="navbar navbar-default" style="border-radius:0" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -215,6 +213,7 @@
       <ul class="nav navbar-nav">
 
         <li data-toggle="modal" data-target="#aboutModal" class="dead-link"><a href="">What is Swift?</a></li>
+        <li data-toggle="modal" data-target="#extensionModal" class="dead-link"><a href="">Free Chrome Extension</a></li>
         <% if !signed_in? %>
           <li class="dead-link" data-toggle="modal" data-target="#userNewModal">
             <a href="">
@@ -258,16 +257,9 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
 <div id="content">
   <%= yield %>
 </div>
-
-
-
-
-
-
 
 </body>
 </html>

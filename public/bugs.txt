@@ -10,6 +10,8 @@ List of Bugs to Fix:
 
 - Border bottom on sidebars.
 
+- Create account broken
+
 
 
 Other notes:

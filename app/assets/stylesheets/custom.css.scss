@@ -34,6 +34,18 @@ button.left-sidebar-button:hover {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 4;
+}
+
+#center-container-background {
+  background-color: green;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 700px;
+  z-index: 3;
 }
 
 #content {
@@ -141,6 +153,7 @@ html {
   margin-top: 0;
   padding: $standard-padding;
   width: 200px;
+  z-index: 3;
 }
 
 .sidebar-container-header {
