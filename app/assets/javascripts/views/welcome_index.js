@@ -22,7 +22,9 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
 
-    this.$("text-area-box-input").val($("hidden-listener").val());
+    debugger;
+
+    this.$("#text-area-box-input").val($("#hidden-listener").val());
 
     return this;
   },
