@@ -10,7 +10,7 @@
 
 <body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
-<textarea id="hidden-listener" class="hidden-characters"></textarea>
+<textarea id="hidden-listener"></textarea>
 
 <% if signed_in? %>
   <span class="hidden-speed" data-speed="<%= current_user.favorite_speed %>"></span>
