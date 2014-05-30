@@ -184,6 +184,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
       this.alterSpeed("slower");
       break;
     case "reset-button":
+      $("#text-area-box-input").val("");
       // This is a workaround - prevents bug that would render from paused.
       this.inRenderProcess = true;
 
