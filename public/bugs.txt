@@ -6,8 +6,6 @@ List of Bugs to Fix:
 
 - Stats don't update until page refresh.
 
-- Collapse order - reader should be last.
-
 - Border bottom on sidebars.
 
 - Create account broken

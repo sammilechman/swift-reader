@@ -10,7 +10,7 @@
 
 <body <% if signed_in? %> data-id="<%= current_user.id %>" <% end %>>
 
-<textarea id="hidden-listener"></textarea>
+<textarea id="hidden-listener" class="hidden-characters"></textarea>
 
 <div id="bg">
   <% cache("cloud-image", expires_in: 1.year) do %>
@@ -258,6 +258,7 @@
 </nav>
 
 <div id="content">
+  <p class="hidden-characters">A</p>
   <%= yield %>
 </div>
 
