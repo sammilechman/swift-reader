@@ -18,7 +18,8 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
   render: function() {
     var renderedContent = this.template({
-      users: this.collection
+      users: this.collection,
+      speed: this.speed
     });
     this.$el.html(renderedContent);
 
@@ -104,7 +105,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
 
   alignSpeed: function(event) {
     var speed = $(event.currentTarget).val();
-    console.log(speed);
     $("#input-speed-box").val(speed);
   },
 
@@ -263,7 +263,6 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
         return;
       } else {
         var word = arr.shift();
-        console.log(word);
         var focusLetterPos = view.calculateFocusLetter(word);
         var words = view.handleFocusLetter(word, focusLetterPos);
 
@@ -288,10 +287,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
       event.preventDefault();
     });
 
-    $("#hidden-listener").on("change", function() {
-      debugger
-      alert("Changed");
-    });
+    this.speed = $(".hidden-speed").data("speed");
   },
 
   quoteData: {

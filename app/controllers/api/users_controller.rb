@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      render :json => @user
+      redirect_to root_url
     else
       render :json => @user.errors.full_messages, :status => 422
     end
@@ -30,6 +30,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-      params.require(:user).permit(:email, :password_digest, :session_token, :total_words, :total_time, :average_speed)
+      params.require(:user).permit(:email, :password_digest, :session_token, :total_words, :total_time, :average_speed, :favorite_speed)
     end
 end

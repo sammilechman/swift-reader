@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523234636) do
+ActiveRecord::Schema.define(version: 20140530185158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
+    t.string   "email",                         null: false
+    t.string   "password_digest",               null: false
     t.string   "session_token"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "total_words"
     t.integer  "total_time"
     t.integer  "average_speed"
+    t.integer  "favorite_speed",  default: 220
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree

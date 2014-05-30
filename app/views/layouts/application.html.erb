@@ -12,6 +12,12 @@
 
 <textarea id="hidden-listener" class="hidden-characters"></textarea>
 
+<% if signed_in? %>
+  <span class="hidden-speed" data-speed="<%= current_user.favorite_speed %>"></span>
+<% else %>
+  <span class="hidden-speed" data-speed="220"></span>
+<% end %>
+
 <div id="bg">
   <% cache("cloud-image", expires_in: 1.year) do %>
     <%= image_tag("clouds.jpg", { style: "min-width:1397px;min-height:100%;", width: "100%" }) %>
@@ -37,6 +43,41 @@
         Nobody knows. This is a very new technology. I take no responsibility for tests you may fail while using this product to study. :-)<br><br>
         <span class="raleway-bold">Why should I sign up?</span><br>
         If you sign up for a free account, you'll automatically track your reading statistics, including average speed and total words read.<br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Account Modal -->
+<div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Account Settings</h4>
+      </div>
+      <div class="modal-body">
+
+        <form action="<%= api_user_url(current_user) %>" method="post">
+          <%= auth_token_input %>
+
+          <input
+             name="_method"
+             type="hidden"
+             value="PATCH">
+
+          <label for="user_favorite_speed">WPM: </label>
+          <br><input
+             id="user_favorite_speed"
+             name="user[favorite_speed]"
+             type="text">
+          <br>
+
+          <br><input type="submit" value="Update">
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -244,7 +285,7 @@
               </li>
               <li class="divider"></li>
               <li data-toggle="modal" data-target="#userShowModal" class="dead-link"><a href=""><%= current_user.email %></a></li>
-              <li class="dead-link"><a href="#/user/<%= current_user.id %>/preferences">Account Settings</a></li>
+              <li data-toggle="modal" data-target="#accountModal" class="dead-link"><a href="#/user/<%= current_user.id %>/preferences">Account Settings</a></li>
             <% else %>
               <li class="dead-link" data-toggle="modal" data-target="#sessionNewModal"><a href="">Login</a></li>
               <li class="dead-link" data-toggle="modal" data-target="#userNewModal"><a href="">Create account</a></li>
