@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes
+    @user.update_attributes(user_params)
     @user.favorite_speed = user_params["favorite_speed"].to_i
     if @user.save
       redirect_to root_url
