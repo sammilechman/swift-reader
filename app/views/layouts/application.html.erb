@@ -73,6 +73,7 @@
             <br><input
                id="user_favorite_speed"
                name="user[favorite_speed]"
+               value="<%= current_user.favorite_speed %>"
                type="text">
             <br>
 
@@ -226,6 +227,7 @@
             <li><span class="raleway-bold">Total words:</span> <%= current_user.total_words %>
             <li><span class="raleway-bold">Average Speed:</span> <%= current_user.average_speed %> wpm
             <li><span class="raleway-bold">Total time:</span> <%= time %> <%= format %>
+            <li><span class="raleway-bold">Default WPM:</span> <%= current_user.favorite_speed %>
           </ul>
 
         </div>
@@ -255,7 +257,7 @@
       <ul class="nav navbar-nav">
 
         <li data-toggle="modal" data-target="#aboutModal" class="dead-link"><a href="">What is Swift?</a></li>
-        <li data-toggle="modal" data-target="#extensionModal" class="dead-link"><a href="">Free Chrome Extension</a></li>
+        <li data-toggle="modal" data-target="#extensionModal" class="dead-link"><a href="">Free Chrome Extension!</a></li>
         <% if !signed_in? %>
           <li class="dead-link" data-toggle="modal" data-target="#userNewModal">
             <a href="">
