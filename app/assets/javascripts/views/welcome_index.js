@@ -287,7 +287,7 @@ SpeedReader.Views.WelcomeIndex = Backbone.View.extend({
       event.preventDefault();
     });
 
-    this.speed = $(".hidden-speed").data("speed");
+    this.speed = $("#hidden-speed").data("speed");
   },
 
   quoteData: {

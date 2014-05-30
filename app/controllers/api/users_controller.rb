@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if @user.update_attribute(:favorite_speed, user_params["favorite_speed"])
       redirect_to root_url
     else
       render :json => @user.errors.full_messages, :status => 422

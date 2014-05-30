@@ -13,9 +13,9 @@
 <textarea id="hidden-listener"></textarea>
 
 <% if signed_in? %>
-  <span class="hidden-speed" data-speed="<%= current_user.favorite_speed %>"></span>
+  <span id="hidden-speed" data-speed="<%= current_user.favorite_speed %>"></span>
 <% else %>
-  <span class="hidden-speed" data-speed="220"></span>
+  <span id="hidden-speed" data-speed="220"></span>
 <% end %>
 
 <div id="bg">
@@ -60,24 +60,25 @@
         <h4 class="modal-title" id="myModalLabel">Account Settings</h4>
       </div>
       <div class="modal-body">
+        <% if signed_in? %>
+          <form action="<%= api_user_url(current_user) %>" method="post">
+            <%= auth_token_input %>
 
-        <form action="<%= api_user_url(current_user) %>" method="post">
-          <%= auth_token_input %>
+            <input
+               name="_method"
+               type="hidden"
+               value="PATCH">
 
-          <input
-             name="_method"
-             type="hidden"
-             value="PATCH">
+            <label for="user_favorite_speed">WPM: </label>
+            <br><input
+               id="user_favorite_speed"
+               name="user[favorite_speed]"
+               type="text">
+            <br>
 
-          <label for="user_favorite_speed">WPM: </label>
-          <br><input
-             id="user_favorite_speed"
-             name="user[favorite_speed]"
-             type="text">
-          <br>
-
-          <br><input type="submit" value="Update">
-        </form>
+            <br><input type="submit" value="Update">
+          </form>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

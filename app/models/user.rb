@@ -1,11 +1,9 @@
 class User < ActiveRecord::Base
 
-  attr_accessor :password, :favorite_speed
+  attr_accessor :password
 
   validates :email, presence: true
 
-  #Problem: can't save when logging out because no password.
-  #Is this method of allowing nil insecure?
   validates :password, presence: true, allow_nil: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
