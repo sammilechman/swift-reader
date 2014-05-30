@@ -19,6 +19,7 @@ $color-highlight: #A9BFD2;
 body {
   height: 100%;
   padding: 0;
+  z-index: 1;
 }
 
 button.left-sidebar-button {
@@ -35,17 +36,31 @@ button.left-sidebar-button:hover {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  z-index: 4;
 }
 
 #center-container-background {
-  background-color: green;
-  height: 100%;
+  /* Fallback option */
+  background-color: rgba(140, 140, 140, 0.3);
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(140, 140, 140, 0.3)), to(rgba(140, 140, 140, 0.0)));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(circle, rgba(140, 140, 140, 0.3), rgba(140, 140, 140, 0.0));
+
+  /* Firefox 3.6+ */
+  background: -moz-radial-gradient(circle, rgba(140, 140, 140, 0.3), rgba(140, 140, 140, 0.0));
+
+  /* IE 10 */
+  background: -ms-radial-gradient(circle, rgba(140, 140, 140, 0.3), rgba(140, 140, 140, 0.0));
+
+  border-radius: 5px;
+  height: 100%;//556px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  width: 700px;
-  z-index: 3;
+  width: 600px;
+  z-index: 1;
 }
 
 #content {
@@ -55,7 +70,6 @@ button.left-sidebar-button:hover {
   margin-left: $standard-margin-medium;
   margin-right: $standard-margin-medium;
   position: relative;
-  z-index: 1;
 }
 
 div.collapse.navbar-collapse {
@@ -126,6 +140,8 @@ html {
   margin: $standard-margin-small;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
+  left: 50px;
   overflow: hidden;
   text-align: center;
   width: $standard-width-middle;
@@ -140,7 +156,7 @@ html {
 #reader-words {
   font-family: "Source Code Pro Medium";
   line-height: 50px;
-  position: relative;
+//  position: relative;
   top: 25px;
 }
 
@@ -202,6 +218,9 @@ textarea {
   margin: $standard-margin-medium;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
+  left: 50px;
+  top: 97px;
   width: 500px;
 }
 
