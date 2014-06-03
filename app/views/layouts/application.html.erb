@@ -61,7 +61,7 @@
       </div>
       <div class="modal-body">
         <% if signed_in? %>
-          <form action="<%= api_user_url(current_user) %>" method="post">
+          <form action="<%= user_url(current_user) %>" method="post">
             <%= auth_token_input %>
 
             <input
